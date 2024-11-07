@@ -20,5 +20,20 @@ namespace ProjecteKanBan
         {
             InitializeComponent();
         }
+
+        private void ButtonAfegirNom_Click(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(txtName.Text) && !lstNames.Items.Contains(txtName.Text))
+            {
+                lstNames.Items.Add(txtName.Text);
+                txtName.Clear();
+            }
+        }
+
+        private void ButtonBuidarLlista_Click(object sender, RoutedEventArgs e)
+        {
+            lstNames.Items.Clear();
+        }
+
     }
 }
