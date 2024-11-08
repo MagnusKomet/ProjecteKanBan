@@ -62,7 +62,7 @@
 
         <StackPanel Grid.Row="1" Grid.Column="2" Margin="5,0,0,0">
             <TextBox x:Name="txtName" Margin="0,5,5,0" Height="30"/>
-            <ComboBox x:Name="cmboxEstat" Margin="0,5,5,0" Height="30"/>
+            <ComboBox x:Name="cmboxEstat" Margin="0,5,5,0" Height="30" SelectedIndex="0"/>
             <Button x:Name="btnAdd" Margin="40,10,40,0" Click="ButtonAfegirItem_Click">Afegir Item</Button>
             <Button x:Name="btnDelete" Margin="60,30,60,0" Click="ButtonTreureItem_Click">Treure Item</Button>
             <Button x:Name="btnClear" Margin="80,30,80,0" Click="ButtonBuidarLlista_Click" Content="Buidar llista"/>
