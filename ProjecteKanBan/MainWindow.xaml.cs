@@ -31,29 +31,29 @@ namespace ProjecteKanBan
 
         private void ButtonAfegirItem_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtName.Text) && !ItemsListbox.Items.Contains(txtName.Text))
+            if (!string.IsNullOrWhiteSpace(txtName.Text) && !ItemsListbox1.Items.Contains(txtName.Text))
             {
                 LlistaItems.Add(new ItemKanBan()
                 {
                     tasca = txtName.Text,
                     estat = cmboxEstat.Text
                 });
-                ItemsListbox.ItemsSource = LlistaItems;
+                ItemsListbox1.ItemsSource = LlistaItems;
                 txtName.Clear();
             }
         }
 
         private void ButtonTreureItem_Click(object sender, RoutedEventArgs e)
         {
-            if (ItemsListbox.SelectedItem != null)
+            if (ItemsListbox1.SelectedItem != null)
             {
-                LlistaItems.Remove((ItemKanBan)ItemsListbox.SelectedItem);
+                LlistaItems.Remove((ItemKanBan)ItemsListbox1.SelectedItem);
             }
         }
 
         private void ButtonBuidarLlista_Click(object sender, RoutedEventArgs e)
         {
-            ItemsListbox.ItemsSource = null;
+            ItemsListbox1.ItemsSource = null;
         }
 
     }
