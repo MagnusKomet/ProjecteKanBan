@@ -1,4 +1,5 @@
-﻿using System.Text;
+﻿using System.Collections.ObjectModel;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -16,23 +17,43 @@ namespace ProjecteKanBan
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        ObservableCollection<ItemKanBan> LlistaItems = new ObservableCollection<ItemKanBan>();
+
         public MainWindow()
         {
             InitializeComponent();
+
+            cmboxEstat.Items.Add("To Do");
+            cmboxEstat.Items.Add("Doing");
+            cmboxEstat.Items.Add("Done");
         }
 
-        private void ButtonAfegirNom_Click(object sender, RoutedEventArgs e)
+        private void ButtonAfegirItem_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtName.Text) && !lstNames.Items.Contains(txtName.Text))
+            if (!string.IsNullOrWhiteSpace(txtName.Text) && !ItemsListbox.Items.Contains(txtName.Text))
             {
-                lstNames.Items.Add(txtName.Text);
+                LlistaItems.Add(new ItemKanBan()
+                {
+                    tasca = txtName.Text,
+                    estat = cmboxEstat.Text
+                });
+                ItemsListbox.ItemsSource = LlistaItems;
                 txtName.Clear();
+            }
+        }
+
+        private void ButtonTreureItem_Click(object sender, RoutedEventArgs e)
+        {
+            if (ItemsListbox.SelectedItem != null)
+            {
+                LlistaItems.Remove((ItemKanBan)ItemsListbox.SelectedItem);
             }
         }
 
         private void ButtonBuidarLlista_Click(object sender, RoutedEventArgs e)
         {
-            lstNames.Items.Clear();
+            ItemsListbox.ItemsSource = null;
         }
 
     }
