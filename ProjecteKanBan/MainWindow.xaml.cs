@@ -53,7 +53,7 @@ namespace ProjecteKanBan
 
         private void ButtonBuidarLlista_Click(object sender, RoutedEventArgs e)
         {
-            ItemsListbox1.ItemsSource = null;
+            LlistaItems.Clear();
         }
 
     }
