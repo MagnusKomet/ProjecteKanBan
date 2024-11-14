@@ -29,8 +29,9 @@
     <Grid Name="pnlMainGrid" Background="LightBlue">
 
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" MinHeight="37" />
-            <RowDefinition />
+            <RowDefinition Height="10*" MinHeight="37" />
+            <RowDefinition Height="80*"/>
+            <RowDefinition Height="5"/>
         </Grid.RowDefinitions>
 
         <Grid.ColumnDefinitions>
@@ -46,9 +47,9 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Label Content="TO DO" HorizontalContentAlignment="Center" Grid.Column="0"/>
-            <Label Content="DOING" Grid.Column="1" HorizontalContentAlignment="Center"/>
-            <Label Content="DONE" Grid.Column="2" HorizontalContentAlignment="Center"/>
+            <Label Content="TO DO" HorizontalContentAlignment="Center" Grid.Column="0" VerticalContentAlignment="Center"/>
+            <Label Content="DOING" Grid.Column="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+            <Label Content="DONE" Grid.Column="2" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
 
         </Grid>
 
@@ -58,8 +59,25 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
+            <ListBox x:Name="LbToDo" Grid.Column="0" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
 
-            <ListBox x:Name="LbToDo" Grid.Column="0">
+                <ListBox.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <StackPanel>
+
+                            <TextBlock Text="{Binding tasca}" TextWrapping="Wrap"/>
+                            <Separator/>
+
+                        </StackPanel>
+
+                    </DataTemplate>
+
+                </ListBox.ItemTemplate>
+
+            </ListBox>
+            <ListBox x:Name="LbDoing" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
 
                 <ListBox.ItemTemplate>
 
@@ -78,26 +96,7 @@
 
             </ListBox>
 
-            <ListBox x:Name="LbDoing" Grid.Column="1">
-
-                <ListBox.ItemTemplate>
-
-                    <DataTemplate>
-
-                        <StackPanel>
-
-                            <TextBlock Text="{Binding tasca}" TextWrapping="Wrap"/>
-                            <Separator/>
-
-                        </StackPanel>
-
-                    </DataTemplate>
-
-                </ListBox.ItemTemplate>
-
-            </ListBox>
-
-            <ListBox x:Name="LbDone" Grid.Column="2">
+            <ListBox x:Name="LbDone" Grid.Column="2" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
 
                 <ListBox.ItemTemplate>
 
@@ -118,11 +117,11 @@
         </Grid>
 
         <StackPanel Grid.Row="1" Grid.Column="2">
-            <TextBox x:Name="txtName" Margin="10" Height="60" Width="180" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
+            <TextBox x:Name="txtName" Margin="10,0,10,10" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Height="82" TextWrapping="Wrap"/>
             <ComboBox x:Name="cmboxEstat" Margin="10" Height="30" SelectedIndex="0"/>
             <Button x:Name="btnAdd" Click="ButtonAfegirItem_Click" Margin="10">Afegir Item</Button>
             <Button x:Name="btnDelete" Click="ButtonTreureItem_Click" Margin="10">Treure Item</Button>
-            <Button x:Name="btnClear" Click="ButtonBuidarLlista_Click" Margin="10" Content="Buidar llista"/>
+            <Button x:Name="btnClear" Click="ButtonBuidarLlista_Click" Margin="10" Height="35">Buidar llista"</Button>
         </StackPanel>
 
     </Grid>
