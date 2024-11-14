@@ -59,7 +59,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <ListBox x:Name="ItemsListbox1" Grid.Column="0">
+            <ListBox x:Name="LbToDo" Grid.Column="0">
 
                 <ListBox.ItemTemplate>
 
@@ -67,8 +67,7 @@
 
                         <StackPanel>
 
-                            <TextBlock Grid.Column="0" Text="{Binding tasca}"/>
-                            <TextBlock Grid.Column="1" Text="{Binding estat}"/>
+                            <TextBlock Text="{Binding tasca}"/>
                             <Separator/>
 
                         </StackPanel>
@@ -79,7 +78,7 @@
 
             </ListBox>
 
-            <ListBox x:Name="ItemsListbox2" Grid.Column="1">
+            <ListBox x:Name="LbDoing" Grid.Column="1">
 
                 <ListBox.ItemTemplate>
 
@@ -87,8 +86,7 @@
 
                         <StackPanel>
 
-                            <TextBlock Grid.Column="0" Text="{Binding tasca}"/>
-                            <TextBlock Grid.Column="1" Text="{Binding estat}"/>
+                            <TextBlock Text="{Binding tasca}"/>
                             <Separator/>
 
                         </StackPanel>
@@ -99,7 +97,7 @@
 
             </ListBox>
 
-            <ListBox x:Name="ItemsListbox3" Grid.Column="2">
+            <ListBox x:Name="LbDone" Grid.Column="2">
 
                 <ListBox.ItemTemplate>
 
@@ -107,8 +105,7 @@
 
                         <StackPanel>
 
-                            <TextBlock Grid.Column="0" Text="{Binding tasca}"/>
-                            <TextBlock Grid.Column="1" Text="{Binding estat}"/>
+                            <TextBlock Text="{Binding tasca}"/>
                             <Separator/>
 
                         </StackPanel>
