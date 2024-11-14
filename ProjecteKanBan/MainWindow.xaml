@@ -60,33 +60,55 @@
             </Grid.ColumnDefinitions>
 
             <ListBox x:Name="LbToDo" Grid.Column="0">
+                
+                <ListBox.ItemContainerStyle>
+                    
+                    <Style TargetType="ListBoxItem">
+                        
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        <Setter Property="Background" Value="{Binding color}"/>
+                        
+                    </Style>
+                    
+                </ListBox.ItemContainerStyle>
 
                 <ListBox.ItemTemplate>
-
+                    
                     <DataTemplate>
-
+                        
                         <StackPanel>
-
-                            <TextBlock Text="{Binding tasca}" TextWrapping="Wrap"/>
+                            
+                            <TextBlock Text="{Binding tasca}" Margin="10,5"/>
                             <Separator/>
-
+                            
                         </StackPanel>
-
+                        
                     </DataTemplate>
-
+                    
                 </ListBox.ItemTemplate>
-
+                
             </ListBox>
 
             <ListBox x:Name="LbDoing" Grid.Column="1">
 
+                <ListBox.ItemContainerStyle>
+
+                    <Style TargetType="ListBoxItem">
+
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        <Setter Property="Background" Value="{Binding color}"/>
+
+                    </Style>
+
+                </ListBox.ItemContainerStyle>
+
                 <ListBox.ItemTemplate>
 
                     <DataTemplate>
 
                         <StackPanel>
 
-                            <TextBlock Text="{Binding tasca}" TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding tasca}" Margin="10,5"/>
                             <Separator/>
 
                         </StackPanel>
@@ -99,13 +121,24 @@
 
             <ListBox x:Name="LbDone" Grid.Column="2">
 
+                <ListBox.ItemContainerStyle>
+
+                    <Style TargetType="ListBoxItem">
+
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        <Setter Property="Background" Value="{Binding color}"/>
+
+                    </Style>
+
+                </ListBox.ItemContainerStyle>
+
                 <ListBox.ItemTemplate>
 
                     <DataTemplate>
 
                         <StackPanel>
 
-                            <TextBlock Text="{Binding tasca}" TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding tasca}" Margin="10,5"/>
                             <Separator/>
 
                         </StackPanel>
@@ -123,6 +156,23 @@
             <Button x:Name="btnAdd" Click="ButtonAfegirItem_Click" Margin="10">Afegir Item</Button>
             <Button x:Name="btnDelete" Click="ButtonTreureItem_Click" Margin="10">Treure Item</Button>
             <Button x:Name="btnClear" Click="ButtonBuidarLlista_Click" Margin="10" Content="Buidar llista"/>
+
+            <Grid Margin="5" Height="45">
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="btnBlue" Click="ButtonAfegirColor_Click" Grid.Column="0" Background="Blue"/>
+                <Button x:Name="btnRed" Click="ButtonAfegirColor_Click" Grid.Column="1" Background="Red"/>
+                <Button x:Name="btnGreen" Click="ButtonAfegirColor_Click" Grid.Column="2" Background="Green"/>
+                <Button x:Name="btnWhite" Click="ButtonAfegirColor_Click" Grid.Column="3" Background="White"/>
+                
+            </Grid>
+        
         </StackPanel>
 
     </Grid>

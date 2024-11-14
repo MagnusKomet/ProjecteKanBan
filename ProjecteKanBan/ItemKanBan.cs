@@ -10,6 +10,6 @@ namespace ProjecteKanBan
     {
         public required string tasca {  get; set; }
         public required string estat {  get; set; }
-
+        public required string color { get; set; }
     }
 }

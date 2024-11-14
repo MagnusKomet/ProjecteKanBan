@@ -1,4 +1,6 @@
 ﻿using System.Collections.ObjectModel;
+using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -21,6 +23,8 @@ namespace ProjecteKanBan
         ObservableCollection<ItemKanBan> LlistaToDo = new ObservableCollection<ItemKanBan>();
         ObservableCollection<ItemKanBan> LlistaDoing = new ObservableCollection<ItemKanBan>();
         ObservableCollection<ItemKanBan> LlistaDone = new ObservableCollection<ItemKanBan>();
+
+        string defaultColor = "Transparent";
 
         public MainWindow()
         {
@@ -45,7 +49,8 @@ namespace ProjecteKanBan
                     LlistaToDo.Add(new ItemKanBan()
                     {
                         tasca = txtName.Text,
-                        estat = cmboxEstat.Text
+                        estat = cmboxEstat.Text,
+                        color = defaultColor
                     });
                 }
                 else if(cmboxEstat.Text == "Doing")
@@ -53,7 +58,8 @@ namespace ProjecteKanBan
                     LlistaDoing.Add(new ItemKanBan()
                     {
                         tasca = txtName.Text,
-                        estat = cmboxEstat.Text
+                        estat = cmboxEstat.Text,
+                        color = defaultColor
                     });
                 }
                 else
@@ -61,7 +67,8 @@ namespace ProjecteKanBan
                     LlistaDone.Add(new ItemKanBan()
                     {
                         tasca = txtName.Text,
-                        estat = cmboxEstat.Text
+                        estat = cmboxEstat.Text,
+                        color = defaultColor
                     });
                 }
                 
@@ -71,17 +78,17 @@ namespace ProjecteKanBan
 
         private void ButtonTreureItem_Click(object sender, RoutedEventArgs e)
         {
-            if (LbToDo.SelectedItem != null)
+            if (LbToDo.SelectedItem is ItemKanBan selectedItem)
             {
-                LlistaToDo.Remove((ItemKanBan)LbToDo.SelectedItem);
+                LlistaToDo.Remove(selectedItem);
             }
-            else if (LbDoing.SelectedItem != null)
+            else if (LbDoing.SelectedItem is ItemKanBan selectedItem2)
             {
-                LlistaDoing.Remove((ItemKanBan)LbDoing.SelectedItem);
+                LlistaDoing.Remove(selectedItem2);
             }
-            else if (LbDone.SelectedItem != null)
+            else if (LbDone.SelectedItem is ItemKanBan selectedItem3)
             {
-                LlistaDone.Remove((ItemKanBan)LbDone.SelectedItem);
+                LlistaDone.Remove(selectedItem3);
             }
         }
 
@@ -90,6 +97,45 @@ namespace ProjecteKanBan
             LlistaToDo.Clear();
             LlistaDoing.Clear();
             LlistaDone.Clear();
+        }
+
+        private void ButtonAfegirColor_Click(object sender, RoutedEventArgs e)
+        {
+            if (LbToDo.SelectedItem is ItemKanBan selectedItem)
+            {
+                PosarColor(selectedItem, sender);                
+            }
+            else if(LbToDo.SelectedItem is ItemKanBan selectedItem2)
+            {
+                PosarColor(selectedItem2, sender);
+            }
+            else if (LbDone.SelectedItem is ItemKanBan selectedItem3)
+            {
+                PosarColor(selectedItem3, sender);
+            }
+
+            LbToDo.Items.Refresh();
+
+        }
+
+        private void PosarColor(ItemKanBan selectedItem, object sender)
+        {
+            if (sender == btnBlue)
+            {
+                selectedItem.color = "Blue";
+            }
+            else if (sender == btnGreen)
+            {
+                selectedItem.color = "Green";
+            }
+            else if (sender == btnRed)
+            {
+                selectedItem.color = "Red";
+            }
+            else
+            {
+                selectedItem.color = "Transparent";
+            }
         }
 
     }
