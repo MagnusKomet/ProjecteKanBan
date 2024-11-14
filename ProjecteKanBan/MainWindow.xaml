@@ -67,8 +67,8 @@
 
                         <StackPanel>
 
-                            <TextBlock Grid.Column="0" Text="{Binding tasca}"/>
-                            <TextBlock Grid.Column="1" Text="{Binding estat}"/>
+                            <TextBlock Grid.Column="0" Text="{Binding tasca}" TextWrapping="Wrap"/>
+                            <TextBlock Grid.Column="1" Text="{Binding estat}" TextWrapping="Wrap"/>
                             <Separator/>
 
                         </StackPanel>
@@ -87,8 +87,8 @@
 
                         <StackPanel>
 
-                            <TextBlock Grid.Column="0" Text="{Binding tasca}"/>
-                            <TextBlock Grid.Column="1" Text="{Binding estat}"/>
+                            <TextBlock Grid.Column="0" Text="{Binding tasca}" TextWrapping="Wrap"/>
+                            <TextBlock Grid.Column="1" Text="{Binding estat}" TextWrapping="Wrap"/>
                             <Separator/>
 
                         </StackPanel>
@@ -107,8 +107,8 @@
 
                         <StackPanel>
 
-                            <TextBlock Grid.Column="0" Text="{Binding tasca}"/>
-                            <TextBlock Grid.Column="1" Text="{Binding estat}"/>
+                            <TextBlock Grid.Column="0" Text="{Binding tasca}" TextWrapping="Wrap"/>
+                            <TextBlock Grid.Column="1" Text="{Binding estat}" TextWrapping="Wrap"/>
                             <Separator/>
 
                         </StackPanel>
@@ -121,7 +121,7 @@
         </Grid>
 
         <StackPanel Grid.Row="1" Grid.Column="2">
-            <TextBox x:Name="txtName" Margin="10" Height="30"/>
+            <TextBox x:Name="txtName" Margin="10" Height="61" Width="180" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
             <ComboBox x:Name="cmboxEstat" Margin="10" Height="30" SelectedIndex="0"/>
             <Button x:Name="btnAdd" Click="ButtonAfegirItem_Click" Margin="10">Afegir Item</Button>
             <Button x:Name="btnDelete" Click="ButtonTreureItem_Click" Margin="10">Treure Item</Button>
