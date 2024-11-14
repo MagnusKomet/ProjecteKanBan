@@ -68,7 +68,7 @@
                         <StackPanel>
 
                             <TextBlock Text="{Binding tasca}" TextWrapping="Wrap"/>
-                            <Separator/>
+                            <Separator Margin="10"/>
 
                         </StackPanel>
 
