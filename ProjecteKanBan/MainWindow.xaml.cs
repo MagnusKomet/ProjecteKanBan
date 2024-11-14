@@ -18,7 +18,9 @@ namespace ProjecteKanBan
     public partial class MainWindow : Window
     {
 
-        ObservableCollection<ItemKanBan> LlistaItems = new ObservableCollection<ItemKanBan>();
+        ObservableCollection<ItemKanBan> LlistaToDo = new ObservableCollection<ItemKanBan>();
+        ObservableCollection<ItemKanBan> LlistaDoing = new ObservableCollection<ItemKanBan>();
+        ObservableCollection<ItemKanBan> LlistaDone = new ObservableCollection<ItemKanBan>();
 
         public MainWindow()
         {
@@ -27,33 +29,67 @@ namespace ProjecteKanBan
             cmboxEstat.Items.Add("To Do");
             cmboxEstat.Items.Add("Doing");
             cmboxEstat.Items.Add("Done");
+
+            LbToDo.ItemsSource = LlistaToDo;
+            LbDoing.ItemsSource = LlistaDoing;
+            LbDone.ItemsSource = LlistaDone;
         }
 
         private void ButtonAfegirItem_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtName.Text) && !ItemsListbox1.Items.Contains(txtName.Text))
+            if (!string.IsNullOrWhiteSpace(txtName.Text))
             {
-                LlistaItems.Add(new ItemKanBan()
+
+                if(cmboxEstat.Text == "To Do")
                 {
-                    tasca = txtName.Text,
-                    estat = cmboxEstat.Text
-                });
-                ItemsListbox1.ItemsSource = LlistaItems;
+                    LlistaToDo.Add(new ItemKanBan()
+                    {
+                        tasca = txtName.Text,
+                        estat = cmboxEstat.Text
+                    });
+                }
+                else if(cmboxEstat.Text == "Doing")
+                {
+                    LlistaDoing.Add(new ItemKanBan()
+                    {
+                        tasca = txtName.Text,
+                        estat = cmboxEstat.Text
+                    });
+                }
+                else
+                {
+                    LlistaDone.Add(new ItemKanBan()
+                    {
+                        tasca = txtName.Text,
+                        estat = cmboxEstat.Text
+                    });
+                }
+                
                 txtName.Clear();
             }
         }
 
         private void ButtonTreureItem_Click(object sender, RoutedEventArgs e)
         {
-            if (ItemsListbox1.SelectedItem != null)
+            if (LbToDo.SelectedItem != null)
             {
-                LlistaItems.Remove((ItemKanBan)ItemsListbox1.SelectedItem);
+                LlistaToDo.Remove((ItemKanBan)LbToDo.SelectedItem);
+            }
+            else if (LbDoing.SelectedItem != null)
+            {
+                LlistaDoing.Remove((ItemKanBan)LbDoing.SelectedItem);
+            }
+            else if (LbDone.SelectedItem != null)
+            {
+                LlistaDone.Remove((ItemKanBan)LbDone.SelectedItem);
             }
         }
 
         private void ButtonBuidarLlista_Click(object sender, RoutedEventArgs e)
         {
-            LlistaItems.Clear();
+            LlistaToDo.Clear();
+            LlistaDoing.Clear();
+            LlistaDone.Clear();
         }
 
     }

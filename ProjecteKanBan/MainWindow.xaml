@@ -59,7 +59,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <ListBox x:Name="ItemsListbox1" Grid.Column="0">
+            <ListBox x:Name="LbToDo" Grid.Column="0">
 
                 <ListBox.ItemTemplate>
 
@@ -67,8 +67,7 @@
 
                         <StackPanel>
 
-                            <TextBlock Grid.Column="0" Text="{Binding tasca}" TextWrapping="Wrap"/>
-                            <TextBlock Grid.Column="1" Text="{Binding estat}" TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding tasca}" TextWrapping="Wrap"/>
                             <Separator/>
 
                         </StackPanel>
@@ -79,7 +78,7 @@
 
             </ListBox>
 
-            <ListBox x:Name="ItemsListbox2" Grid.Column="1">
+            <ListBox x:Name="LbDoing" Grid.Column="1">
 
                 <ListBox.ItemTemplate>
 
@@ -87,8 +86,7 @@
 
                         <StackPanel>
 
-                            <TextBlock Grid.Column="0" Text="{Binding tasca}" TextWrapping="Wrap"/>
-                            <TextBlock Grid.Column="1" Text="{Binding estat}" TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding tasca}" TextWrapping="Wrap"/>
                             <Separator/>
 
                         </StackPanel>
@@ -99,7 +97,7 @@
 
             </ListBox>
 
-            <ListBox x:Name="ItemsListbox3" Grid.Column="2">
+            <ListBox x:Name="LbDone" Grid.Column="2">
 
                 <ListBox.ItemTemplate>
 
@@ -107,8 +105,7 @@
 
                         <StackPanel>
 
-                            <TextBlock Grid.Column="0" Text="{Binding tasca}" TextWrapping="Wrap"/>
-                            <TextBlock Grid.Column="1" Text="{Binding estat}" TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding tasca}" TextWrapping="Wrap"/>
                             <Separator/>
 
                         </StackPanel>
@@ -121,7 +118,7 @@
         </Grid>
 
         <StackPanel Grid.Row="1" Grid.Column="2">
-            <TextBox x:Name="txtName" Margin="10" Height="61" Width="180" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
+            <TextBox x:Name="txtName" Margin="10" Height="60" Width="180" TextWrapping="Wrap" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"/>
             <ComboBox x:Name="cmboxEstat" Margin="10" Height="30" SelectedIndex="0"/>
             <Button x:Name="btnAdd" Click="ButtonAfegirItem_Click" Margin="10">Afegir Item</Button>
             <Button x:Name="btnDelete" Click="ButtonTreureItem_Click" Margin="10">Treure Item</Button>
