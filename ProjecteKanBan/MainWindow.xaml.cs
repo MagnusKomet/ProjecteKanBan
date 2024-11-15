@@ -105,16 +105,25 @@ namespace ProjecteKanBan
             {
                 PosarColor(selectedItem, sender);
                 LbToDo.Items.Refresh();
+                LbToDo.SelectedItem = null;
+                LbDoing.SelectedItem = null;
+                LbDone.SelectedItem = null;
             }
             else if(LbDoing.SelectedItem is ItemKanBan selectedItem2)
             {
                 PosarColor(selectedItem2, sender);
                 LbDoing.Items.Refresh();
+                LbToDo.SelectedItem = null;
+                LbDoing.SelectedItem = null;
+                LbDone.SelectedItem = null;
             }
             else if (LbDone.SelectedItem is ItemKanBan selectedItem3)
             {
                 PosarColor(selectedItem3, sender);
                 LbDone.Items.Refresh();
+                LbToDo.SelectedItem = null;
+                LbDoing.SelectedItem = null;
+                LbDone.SelectedItem = null;
             }           
 
         }
@@ -123,15 +132,15 @@ namespace ProjecteKanBan
         {
             if (sender == btnBlue)
             {
-                selectedItem.color = "Blue";
+                selectedItem.color = "CornflowerBlue";
             }
             else if (sender == btnGreen)
             {
-                selectedItem.color = "Green";
+                selectedItem.color = "LimeGreen";
             }
             else if (sender == btnRed)
             {
-                selectedItem.color = "Red";
+                selectedItem.color = "Tomato";
             }
             else
             {
