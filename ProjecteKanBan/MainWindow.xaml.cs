@@ -103,18 +103,19 @@ namespace ProjecteKanBan
         {
             if (LbToDo.SelectedItem is ItemKanBan selectedItem)
             {
-                PosarColor(selectedItem, sender);                
+                PosarColor(selectedItem, sender);
+                LbToDo.Items.Refresh();
             }
-            else if(LbToDo.SelectedItem is ItemKanBan selectedItem2)
+            else if(LbDoing.SelectedItem is ItemKanBan selectedItem2)
             {
                 PosarColor(selectedItem2, sender);
+                LbDoing.Items.Refresh();
             }
             else if (LbDone.SelectedItem is ItemKanBan selectedItem3)
             {
                 PosarColor(selectedItem3, sender);
-            }
-
-            LbToDo.Items.Refresh();
+                LbDone.Items.Refresh();
+            }           
 
         }
 
@@ -135,6 +136,25 @@ namespace ProjecteKanBan
             else
             {
                 selectedItem.color = "Transparent";
+            }
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (sender == LbToDo)
+            {
+                LbDoing.SelectedItem = null;
+                LbDone.SelectedItem = null;
+            }
+            else if (sender == LbDoing)
+            {
+                LbDone.SelectedItem = null;
+                LbToDo.SelectedItem = null;
+            }
+            else if (sender == LbDone)
+            {
+                LbDoing.SelectedItem = null;
+                LbToDo.SelectedItem = null;
             }
         }
 

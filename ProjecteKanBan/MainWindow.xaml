@@ -60,7 +60,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <ListBox x:Name="LbToDo" Grid.Column="0" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox x:Name="LbToDo" Grid.Column="0" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListBox_SelectionChanged">
                 
                 <ListBox.ItemContainerStyle>
                     
@@ -89,7 +89,7 @@
                 </ListBox.ItemTemplate>
                 
             </ListBox>
-            <ListBox x:Name="LbDoing" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox x:Name="LbDoing" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListBox_SelectionChanged">
 
                 <ListBox.ItemContainerStyle>
 
@@ -119,7 +119,7 @@
 
             </ListBox>
 
-            <ListBox x:Name="LbDone" Grid.Column="2" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox x:Name="LbDone" Grid.Column="2" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListBox_SelectionChanged">
 
                 <ListBox.ItemContainerStyle>
 
