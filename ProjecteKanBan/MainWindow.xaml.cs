@@ -127,15 +127,15 @@ namespace ProjecteKanBan
         {
             if (sender == btnBlue)
             {
-                selectedItem.color = "Blue";
+                selectedItem.color = "CornflowerBlue";
             }
             else if (sender == btnGreen)
             {
-                selectedItem.color = "Green";
+                selectedItem.color = "LimeGreen";
             }
             else if (sender == btnRed)
             {
-                selectedItem.color = "Red";
+                selectedItem.color = "Tomato";
             }
             else
             {
