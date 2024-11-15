@@ -176,8 +176,10 @@ namespace ProjecteKanBan
 
         private void btnGestionarResponsables_Click(object sender, RoutedEventArgs e)
         {
-            Window w2 = new Window();
-            w2.Show();
+            Window responsables = new Responsables();
+
+            responsables.Show();
+            
         }
     }
 }
