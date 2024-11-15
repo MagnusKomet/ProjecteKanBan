@@ -26,6 +26,7 @@ namespace ProjecteKanBan
         ObservableCollection<ItemKanBan> LlistaDone = new ObservableCollection<ItemKanBan>();
 
         string defaultColor = "Transparent";
+        int idCounter = 0;
 
         public MainWindow()
         {
@@ -44,11 +45,13 @@ namespace ProjecteKanBan
         {
             if (!string.IsNullOrWhiteSpace(txtName.Text))
             {
+                idCounter++;
                 
                 if(cmboxEstat.Text == "To Do")
                 {
                     LlistaToDo.Add(new ItemKanBan()
                     {
+                        id = idCounter,
                         tasca = txtName.Text,
                         estat = cmboxEstat.Text,
                         color = defaultColor
@@ -58,6 +61,7 @@ namespace ProjecteKanBan
                 {
                     LlistaDoing.Add(new ItemKanBan()
                     {
+                        id = idCounter,
                         tasca = txtName.Text,
                         estat = cmboxEstat.Text,
                         color = defaultColor
@@ -67,6 +71,7 @@ namespace ProjecteKanBan
                 {
                     LlistaDone.Add(new ItemKanBan()
                     {
+                        id = idCounter,
                         tasca = txtName.Text,
                         estat = cmboxEstat.Text,
                         color = defaultColor

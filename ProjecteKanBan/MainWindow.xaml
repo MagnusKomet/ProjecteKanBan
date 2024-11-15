@@ -22,8 +22,24 @@
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Margin" Value="5" />
         </Style>
-        
-        
+
+        <Style TargetType="{x:Type ListBoxItem}">
+
+            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+            <Setter Property="Background" Value="{Binding color}"/>
+            <Setter Property="FontSize" Value="20"/>
+
+            <Setter Property="Margin" Value="10,5"/>
+
+        </Style>
+
+        <Style TargetType="{x:Type TextBlock}">
+
+            <Setter Property="TextWrapping" Value="Wrap"/>
+
+        </Style>
+
+
     </Window.Resources>
 
     <Grid Name="pnlMainGrid" Background="LightBlue">
@@ -61,17 +77,6 @@
             </Grid.ColumnDefinitions>
 
             <ListBox x:Name="LbToDo" Grid.Column="0" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListBox_SelectionChanged">
-                
-                <ListBox.ItemContainerStyle>
-                    
-                    <Style TargetType="ListBoxItem">
-                        
-                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                        <Setter Property="Background" Value="{Binding color}"/>
-                        
-                    </Style>
-                    
-                </ListBox.ItemContainerStyle>
 
                 <ListBox.ItemTemplate>
                     
@@ -79,7 +84,8 @@
                         
                         <StackPanel>
 
-                            <TextBlock Text="{Binding tasca}" Margin="10,5" TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding id}"/>
+                            <TextBlock Text="{Binding tasca}"/>
                             <Separator/>
                             
                         </StackPanel>
@@ -91,24 +97,14 @@
             </ListBox>
             <ListBox x:Name="LbDoing" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListBox_SelectionChanged">
 
-                <ListBox.ItemContainerStyle>
-
-                    <Style TargetType="ListBoxItem">
-
-                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                        <Setter Property="Background" Value="{Binding color}"/>
-
-                    </Style>
-
-                </ListBox.ItemContainerStyle>
-
                 <ListBox.ItemTemplate>
 
                     <DataTemplate>
 
                         <StackPanel>
 
-                            <TextBlock Text="{Binding tasca}" Margin="10,5" TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding id}"/>
+                            <TextBlock Text="{Binding tasca}"/>
                             <Separator/>
 
                         </StackPanel>
@@ -121,24 +117,14 @@
 
             <ListBox x:Name="LbDone" Grid.Column="2" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListBox_SelectionChanged">
 
-                <ListBox.ItemContainerStyle>
-
-                    <Style TargetType="ListBoxItem">
-
-                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                        <Setter Property="Background" Value="{Binding color}"/>
-
-                    </Style>
-
-                </ListBox.ItemContainerStyle>
-
                 <ListBox.ItemTemplate>
 
                     <DataTemplate>
 
                         <StackPanel>
 
-                            <TextBlock Text="{Binding tasca}" Margin="10,5" TextWrapping="Wrap"/>
+                            <TextBlock Text="{Binding id}"/>
+                            <TextBlock Text="{Binding tasca}"/>
                             <Separator/>
 
                         </StackPanel>
@@ -151,7 +137,7 @@
         </Grid>
 
         <StackPanel Grid.Row="1" Grid.Column="2">
-            <TextBox x:Name="txtName" Margin="10,0,10,10" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Height="82" TextWrapping="Wrap"/>
+            <TextBox x:Name="txtName" Margin="10,0,10,10" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Height="82" TextWrapping="Wrap" FontSize="20"/>
             <ComboBox x:Name="cmboxEstat" Margin="10" Height="30" SelectedIndex="0"/>
             <Button x:Name="btnAdd" Click="ButtonAfegirItem_Click" Margin="10">Afegir Item</Button>
             <Button x:Name="btnDelete" Click="ButtonTreureItem_Click" Margin="10">Treure Item</Button>
