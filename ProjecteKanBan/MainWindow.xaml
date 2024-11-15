@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="Projecte KanBan" Height="450" Width="800">
     <Window.Resources>
-        
+
         <Style TargetType="{x:Type Button}">
             <Setter Property="Background" Value="Orange" />
             <Setter Property="BorderBrush" Value="Crimson" />
@@ -22,8 +22,13 @@
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Margin" Value="5" />
         </Style>
-        
-        
+
+        <Style TargetType="ListBox">
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+        </Style>
+
+
     </Window.Resources>
 
     <Grid Name="pnlMainGrid" Background="LightBlue">
@@ -60,36 +65,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <ListBox x:Name="LbToDo" Grid.Column="0" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListBox_SelectionChanged">
-                
-                <ListBox.ItemContainerStyle>
-                    
-                    <Style TargetType="ListBoxItem">
-                        
-                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
-                        <Setter Property="Background" Value="{Binding color}"/>
-                        
-                    </Style>
-                    
-                </ListBox.ItemContainerStyle>
-
-                <ListBox.ItemTemplate>
-                    
-                    <DataTemplate>
-                        
-                        <StackPanel>
-
-                            <TextBlock Text="{Binding tasca}" Margin="10,5" TextWrapping="Wrap"/>
-                            <Separator/>
-                            
-                        </StackPanel>
-                        
-                    </DataTemplate>
-                    
-                </ListBox.ItemTemplate>
-                
-            </ListBox>
-            <ListBox x:Name="LbDoing" Grid.Column="1" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListBox_SelectionChanged">
+            <ListBox x:Name="LbToDo" Grid.Column="0" SelectionChanged="ListBox_SelectionChanged">
 
                 <ListBox.ItemContainerStyle>
 
@@ -118,8 +94,37 @@
                 </ListBox.ItemTemplate>
 
             </ListBox>
+            <ListBox x:Name="LbDoing" Grid.Column="1" SelectionChanged="ListBox_SelectionChanged">
 
-            <ListBox x:Name="LbDone" Grid.Column="2" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListBox_SelectionChanged">
+                <ListBox.ItemContainerStyle>
+
+                    <Style TargetType="ListBoxItem">
+
+                        <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        <Setter Property="Background" Value="{Binding color}"/>
+
+                    </Style>
+
+                </ListBox.ItemContainerStyle>
+
+                <ListBox.ItemTemplate>
+
+                    <DataTemplate>
+
+                        <StackPanel>
+
+                            <TextBlock Text="{Binding tasca}" Margin="10,5" TextWrapping="Wrap"/>
+                            <Separator/>
+
+                        </StackPanel>
+
+                    </DataTemplate>
+
+                </ListBox.ItemTemplate>
+
+            </ListBox>
+
+            <ListBox x:Name="LbDone" Grid.Column="2" SelectionChanged="ListBox_SelectionChanged">
 
                 <ListBox.ItemContainerStyle>
 
@@ -166,13 +171,13 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <Button x:Name="btnBlue" Click="ButtonAfegirColor_Click" Grid.Column="0" Background="CornflowerBlue"/>
-                <Button x:Name="btnRed" Click="ButtonAfegirColor_Click" Grid.Column="1" Background="Tomato"/>
-                <Button x:Name="btnGreen" Click="ButtonAfegirColor_Click" Grid.Column="2" Background="LimeGreen"/>
+                <Button x:Name="btnRed" Click="ButtonAfegirColor_Click" Grid.Column="0" Background="Tomato"/>
+                <Button x:Name="btnGreen" Click="ButtonAfegirColor_Click" Grid.Column="1" Background="LimeGreen"/>
+                <Button x:Name="btnBlue" Click="ButtonAfegirColor_Click" Grid.Column="2" Background="CornflowerBlue"/>
                 <Button x:Name="btnWhite" Click="ButtonAfegirColor_Click" Grid.Column="3" Background="White"/>
-                
+
             </Grid>
-        
+
         </StackPanel>
 
     </Grid>
