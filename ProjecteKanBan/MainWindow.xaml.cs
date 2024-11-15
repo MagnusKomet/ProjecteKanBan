@@ -45,7 +45,7 @@ namespace ProjecteKanBan
         {
             if (!string.IsNullOrWhiteSpace(txtName.Text))
             {
-                idCounter++;
+                idCounter++;                
                 
                 if(cmboxEstat.Text == "To Do")
                 {
@@ -54,7 +54,8 @@ namespace ProjecteKanBan
                         id = idCounter,
                         tasca = txtName.Text,
                         estat = cmboxEstat.Text,
-                        color = defaultColor
+                        color = defaultColor,
+                        dataStart = DateTime.Now
                     });
                 }
                 else if(cmboxEstat.Text == "Doing")
@@ -64,7 +65,8 @@ namespace ProjecteKanBan
                         id = idCounter,
                         tasca = txtName.Text,
                         estat = cmboxEstat.Text,
-                        color = defaultColor
+                        color = defaultColor,
+                        dataStart = DateTime.Now
                     });
                 }
                 else
@@ -74,7 +76,8 @@ namespace ProjecteKanBan
                         id = idCounter,
                         tasca = txtName.Text,
                         estat = cmboxEstat.Text,
-                        color = defaultColor
+                        color = defaultColor,
+                        dataStart = DateTime.Now
                     });
                 }
                 
