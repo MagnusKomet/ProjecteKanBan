@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjecteKanBan"
         mc:Ignorable="d"
-        Title="Projecte KanBan" Height="450" Width="800" WindowState="Maximized">
+        Title="Projecte KanBan" Height="1080" Width="1920" WindowState="Maximized">
     <Window.Resources>
 
         <Style TargetType="{x:Type Button}">
@@ -17,15 +17,21 @@
         </Style>
 
         <Style TargetType="{x:Type Label}">
-            <Setter Property="Background" Value="LightGray" />
-            <Setter Property="FontSize" Value="20" />
+            <Setter Property="Background" Value="Orange" />
+            <Setter Property="BorderBrush" Value="Crimson" />
+            <Setter Property="FontSize" Value="40" />
             <Setter Property="FontWeight" Value="Bold" />
             <Setter Property="Margin" Value="5" />
+            <Setter Property="BorderThickness" Value="5"/>
         </Style>
 
         <Style TargetType="ListBox">
             <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
             <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="BorderBrush" Value="Crimson"/>
+            <Setter Property="BorderThickness" Value="3"/>
+            <Setter Property="Background" Value="Moccasin"/>
         </Style>
 
 
@@ -158,9 +164,10 @@
         <StackPanel Grid.Row="1" Grid.Column="2">
             <TextBox x:Name="txtName" Margin="10,0,10,10" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Height="82" TextWrapping="Wrap"/>
             <ComboBox x:Name="cmboxEstat" Margin="10" Height="30" SelectedIndex="0"/>
-            <Button x:Name="btnAdd" Click="ButtonAfegirItem_Click" Margin="10">Afegir Item</Button>
-            <Button x:Name="btnDelete" Click="ButtonTreureItem_Click" Margin="10">Treure Item</Button>
-            <Button x:Name="btnClear" Click="ButtonBuidarLlista_Click" Margin="10" Content="Buidar llista"/>
+            <ComboBox x:Name="cmboxResponsable" Margin="10" Height="30" SelectedIndex="0"/>
+            <Button x:Name="btnAdd" Click="ButtonAfegirItem_Click">Afegir Item</Button>
+            <Button x:Name="btnDelete" Click="ButtonTreureItem_Click">Treure Item</Button>
+            <Button x:Name="btnClear" Click="ButtonBuidarLlista_Click" Content="Buidar llista"/>
 
             <Grid Margin="5" Height="45">
 
@@ -177,6 +184,7 @@
                 <Button x:Name="btnWhite" Click="ButtonAfegirColor_Click" Grid.Column="3" Background="White"/>
 
             </Grid>
+            <Button x:Name="btnGestionarResponsables" Click="btnGestionarResponsables_Click" Content="Gestionar responsables" FontSize="20"/>
 
         </StackPanel>
 
