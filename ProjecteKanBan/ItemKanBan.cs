@@ -8,6 +8,7 @@ namespace ProjecteKanBan
 {
     class ItemKanBan
     {
+        public required int id { get; set; }
         public required string tasca {  get; set; }
         public required string estat {  get; set; }
         public required string color { get; set; }
