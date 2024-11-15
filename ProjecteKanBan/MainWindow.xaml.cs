@@ -9,6 +9,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Media.TextFormatting;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
@@ -43,7 +44,7 @@ namespace ProjecteKanBan
         {
             if (!string.IsNullOrWhiteSpace(txtName.Text))
             {
-
+                
                 if(cmboxEstat.Text == "To Do")
                 {
                     LlistaToDo.Add(new ItemKanBan()
@@ -106,25 +107,19 @@ namespace ProjecteKanBan
                 PosarColor(selectedItem, sender);
                 LbToDo.Items.Refresh();
                 LbToDo.SelectedItem = null;
-                LbDoing.SelectedItem = null;
-                LbDone.SelectedItem = null;
             }
-            else if(LbDoing.SelectedItem is ItemKanBan selectedItem2)
+            else if (LbDoing.SelectedItem is ItemKanBan selectedItem2)
             {
                 PosarColor(selectedItem2, sender);
                 LbDoing.Items.Refresh();
-                LbToDo.SelectedItem = null;
                 LbDoing.SelectedItem = null;
-                LbDone.SelectedItem = null;
             }
             else if (LbDone.SelectedItem is ItemKanBan selectedItem3)
             {
                 PosarColor(selectedItem3, sender);
                 LbDone.Items.Refresh();
-                LbToDo.SelectedItem = null;
-                LbDoing.SelectedItem = null;
                 LbDone.SelectedItem = null;
-            }           
+            }
 
         }
 
@@ -150,21 +145,25 @@ namespace ProjecteKanBan
 
         private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (sender == LbToDo)
+            if (e.AddedItems.Count > 0)
             {
-                LbDoing.SelectedItem = null;
-                LbDone.SelectedItem = null;
+                if (sender == LbToDo)
+                {
+                    LbDoing.SelectedItem = null;
+                    LbDone.SelectedItem = null;
+                }
+                else if (sender == LbDoing)
+                {
+                    LbDone.SelectedItem = null;
+                    LbToDo.SelectedItem = null;
+                }
+                else if (sender == LbDone)
+                {
+                    LbDoing.SelectedItem = null;
+                    LbToDo.SelectedItem = null;
+                }
             }
-            else if (sender == LbDoing)
-            {
-                LbDone.SelectedItem = null;
-                LbToDo.SelectedItem = null;
-            }
-            else if (sender == LbDone)
-            {
-                LbDoing.SelectedItem = null;
-                LbToDo.SelectedItem = null;
-            }
+
         }
 
     }
