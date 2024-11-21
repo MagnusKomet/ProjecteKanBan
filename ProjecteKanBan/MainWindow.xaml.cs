@@ -57,7 +57,13 @@ namespace ProjecteKanBan
                     estat = cmboxEstat.Text,
                     color = defaultColor,
                     dataStart = DateTime.Now,
-                    responsable = cmboxResponsable.Text
+                    responsable = cmboxResponsable.Text,
+
+                    itemFinal = "Codi: " + idCounter +
+                    "\nTasca: " + txtName.Text +
+                    "\nData Inici: " + DateTime.Now +
+                    "\nResponsable: " + cmboxResponsable.Text
+
                 };
 
                 if (cmboxEstat.Text == "To Do")
