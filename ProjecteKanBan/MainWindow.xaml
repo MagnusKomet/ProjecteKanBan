@@ -183,6 +183,7 @@
             <TextBox x:Name="txtName" Margin="10,0,10,10" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Height="82" TextWrapping="Wrap" FontSize="20"/>
             <ComboBox x:Name="cmboxEstat"/>
             <ComboBox x:Name="cmboxResponsable"/>
+            <DatePicker x:Name="dpData"/>
             <Button x:Name="btnAdd" Click="ButtonAfegirItem_Click">Afegir Item</Button>
             <Button x:Name="btnDelete" Click="ButtonTreureItem_Click">Treure Item</Button>
             <Button x:Name="btnClear" Click="ButtonBuidarLlista_Click" Content="Buidar llista"/>
@@ -203,7 +204,7 @@
 
             </Grid>
             <Button x:Name="btnGestionarResponsables" Click="btnGestionarResponsables_Click" Content="Gestionar responsables" FontSize="20"/>
-
+            
         </StackPanel>
 
     </Grid>
