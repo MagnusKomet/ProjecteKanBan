@@ -20,14 +20,11 @@ namespace ProjecteKanBan
     /// </summary>
     public partial class Responsables : Window
     {
-
-        
         public Responsables()
         {
             InitializeComponent();
 
             llistaResponsablesListBox.ItemsSource = MainWindow.llistaResponsables;
-
         }
 
         private void afegirResponsableBoto_Click(object sender, RoutedEventArgs e)

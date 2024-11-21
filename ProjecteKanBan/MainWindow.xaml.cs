@@ -37,6 +37,11 @@ namespace ProjecteKanBan
             cmboxEstat.Items.Add("Doing");
             cmboxEstat.Items.Add("Done");
 
+
+
+            llistaResponsables.Add("Fèlix");
+            llistaResponsables.Add("Ernest");
+
             cmboxResponsable.ItemsSource = llistaResponsables;
 
             LbToDo.ItemsSource = llistaToDo;
@@ -56,12 +61,12 @@ namespace ProjecteKanBan
                     tasca = txtName.Text,
                     estat = cmboxEstat.Text,
                     color = defaultColor,
-                    dataStart = DateTime.Now,
+                    dataStart = DateTime.Now.ToShortDateString(),
                     responsable = cmboxResponsable.Text,
 
                     itemFinal = "Codi: " + idCounter +
-                    "\nTasca: " + txtName.Text +
-                    "\nData Inici: " + DateTime.Now +
+                    "\nTasca:\n" + txtName.Text +
+                    "\nData Inici: " + DateTime.Now.ToShortDateString() +
                     "\nResponsable: " + cmboxResponsable.Text
 
                 };

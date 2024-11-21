@@ -34,7 +34,7 @@
             <Setter Property="Margin" Value="10,5"/>
 
         </Style>
-        
+
         <Style TargetType="ListBox">
             <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
             <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
@@ -42,6 +42,12 @@
             <Setter Property="BorderBrush" Value="Crimson"/>
             <Setter Property="BorderThickness" Value="3"/>
             <Setter Property="Background" Value="Moccasin"/>
+        </Style>
+
+        <Style TargetType="ComboBox">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="Height" Value="30"/>
+            <Setter Property="SelectedIndex" Value="0"/>
         </Style>
 
     </Window.Resources>
@@ -88,7 +94,19 @@
 
                         <StackPanel>
 
-                            <TextBlock Text="{Binding itemFinal}" TextWrapping="Wrap"/>
+                            <TextBlock TextWrapping="Wrap">
+                                <Run Text="Codi: " FontWeight="Bold"/>
+                                <Run Text="{Binding id}"/>
+                                <LineBreak/>
+                                <Run Text="Tasca: " FontWeight="Bold"/>
+                                <Run Text="{Binding tasca}"/>
+                                <LineBreak/>
+                                <Run Text="Data Inici: " FontWeight="Bold"/>
+                                <Run Text="{Binding dataStart}"/>
+                                <LineBreak/>
+                                <Run Text="Responsable: " FontWeight="Bold"/>
+                                <Run Text="{Binding responsable}"/>
+                            </TextBlock>
                             <Separator/>
 
                         </StackPanel>
@@ -106,7 +124,19 @@
 
                         <StackPanel>
 
-                            <TextBlock Text="{Binding itemFinal}" TextWrapping="Wrap"/>
+                            <TextBlock TextWrapping="Wrap">
+                                <Run Text="Codi: " FontWeight="Bold"/>
+                                <Run Text="{Binding id}"/>
+                                <LineBreak/>
+                                <Run Text="Tasca: " FontWeight="Bold"/>
+                                <Run Text="{Binding tasca}"/>
+                                <LineBreak/>
+                                <Run Text="Data Inici: " FontWeight="Bold"/>
+                                <Run Text="{Binding dataStart}"/>
+                                <LineBreak/>
+                                <Run Text="Responsable: " FontWeight="Bold"/>
+                                <Run Text="{Binding responsable}"/>
+                            </TextBlock>
                             <Separator/>
 
                         </StackPanel>
@@ -125,7 +155,19 @@
 
                         <StackPanel>
 
-                            <TextBlock Text="{Binding itemFinal}" TextWrapping="Wrap"/>
+                            <TextBlock TextWrapping="Wrap">
+                                <Run Text="Codi: " FontWeight="Bold"/>
+                                <Run Text="{Binding id}"/>
+                                <LineBreak/>
+                                <Run Text="Tasca: " FontWeight="Bold"/>
+                                <Run Text="{Binding tasca}"/>
+                                <LineBreak/>
+                                <Run Text="Data Inici: " FontWeight="Bold"/>
+                                <Run Text="{Binding dataStart}"/>
+                                <LineBreak/>
+                                <Run Text="Responsable: " FontWeight="Bold"/>
+                                <Run Text="{Binding responsable}"/>
+                            </TextBlock>
                             <Separator/>
 
                         </StackPanel>
@@ -139,8 +181,8 @@
 
         <StackPanel Grid.Row="1" Grid.Column="2">
             <TextBox x:Name="txtName" Margin="10,0,10,10" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Height="82" TextWrapping="Wrap" FontSize="20"/>
-            <ComboBox x:Name="cmboxEstat" Margin="10" Height="30" SelectedIndex="0"/>
-            <ComboBox x:Name="cmboxResponsable" Margin="10" Height="30" SelectedIndex="0"/>
+            <ComboBox x:Name="cmboxEstat"/>
+            <ComboBox x:Name="cmboxResponsable"/>
             <Button x:Name="btnAdd" Click="ButtonAfegirItem_Click">Afegir Item</Button>
             <Button x:Name="btnDelete" Click="ButtonTreureItem_Click">Treure Item</Button>
             <Button x:Name="btnClear" Click="ButtonBuidarLlista_Click" Content="Buidar llista"/>
