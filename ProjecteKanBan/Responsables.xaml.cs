@@ -26,7 +26,7 @@ namespace ProjecteKanBan
         {
             InitializeComponent();
 
-            MainWindow.llistaResponsables.Add("exemple");
+            llistaResponsablesListBox.ItemsSource = MainWindow.llistaResponsables;
 
         }
 
@@ -34,13 +34,17 @@ namespace ProjecteKanBan
         {
             if (!string.IsNullOrWhiteSpace(nomResponsableTextBox.Text))
             {
-                llistaResponsables.Add(nomResponsableTextBox.Text);
+                MainWindow.llistaResponsables.Add(nomResponsableTextBox.Text);
+                nomResponsableTextBox.Text = string.Empty;
             }
         }
 
         private void eliminarResponsableBoto_Click(object sender, RoutedEventArgs e)
         {
-
+            if (llistaResponsablesListBox.SelectedItem is string responsable)
+            {
+                MainWindow.llistaResponsables.Remove(responsable);
+            }
         }
     }
 }
