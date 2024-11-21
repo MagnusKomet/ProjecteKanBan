@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,9 +20,23 @@ namespace ProjecteKanBan
     /// </summary>
     public partial class Responsables : Window
     {
+        ObservableCollection<string> llistaResponsables = new ObservableCollection<string>();
         public Responsables()
         {
             InitializeComponent();
+        }
+
+        private void afegirResponsableBoto_Click(object sender, RoutedEventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(nomResponsableTextBox.Text))
+            {
+                llistaResponsables.Add(nomResponsableTextBox.Text);
+            }
+        }
+
+        private void eliminarResponsableBoto_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

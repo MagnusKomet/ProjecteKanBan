@@ -6,14 +6,22 @@
         xmlns:local="clr-namespace:ProjecteKanBan"
         mc:Ignorable="d"
         Title="Responsables" Height="300" Width="300">
-    <Grid Background="Tomato">
+    <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        
-        <ListBox>
-            
-        </ListBox>
+
+        <StackPanel>
+            <ListBox x:Name="llistaResponsablesListBox" Margin="10">
+
+            </ListBox>
+            <Button x:Name="eliminarResponsableBoto" Content="Eliminar responsable" Click="eliminarResponsableBoto_Click" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1">
+            <TextBox x:Name="nomResponsableTextBox" Margin="10"/>
+            <Button x:Name="afegirResponsableBoto" Content="Afegir responsable" Click="afegirResponsableBoto_Click" Margin="10"/>
+        </StackPanel>
     </Grid>
 </Window>
