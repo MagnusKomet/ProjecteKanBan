@@ -20,10 +20,14 @@ namespace ProjecteKanBan
     /// </summary>
     public partial class Responsables : Window
     {
-        ObservableCollection<string> llistaResponsables = new ObservableCollection<string>();
+
+        
         public Responsables()
         {
             InitializeComponent();
+
+            MainWindow.llistaResponsables.Add("exemple");
+
         }
 
         private void afegirResponsableBoto_Click(object sender, RoutedEventArgs e)

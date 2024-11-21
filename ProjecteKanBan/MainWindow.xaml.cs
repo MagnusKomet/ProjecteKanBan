@@ -20,10 +20,11 @@ namespace ProjecteKanBan
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static ObservableCollection<string> llistaResponsables = new ObservableCollection<string>();
 
-        ObservableCollection<ItemKanBan> LlistaToDo = new ObservableCollection<ItemKanBan>();
-        ObservableCollection<ItemKanBan> LlistaDoing = new ObservableCollection<ItemKanBan>();
-        ObservableCollection<ItemKanBan> LlistaDone = new ObservableCollection<ItemKanBan>();
+        ObservableCollection<ItemKanBan> llistaToDo = new ObservableCollection<ItemKanBan>();
+        ObservableCollection<ItemKanBan> llistaDoing = new ObservableCollection<ItemKanBan>();
+        ObservableCollection<ItemKanBan> llistaDone = new ObservableCollection<ItemKanBan>();        
 
         string defaultColor = "Transparent";
         int idCounter = 0;
@@ -36,52 +37,47 @@ namespace ProjecteKanBan
             cmboxEstat.Items.Add("Doing");
             cmboxEstat.Items.Add("Done");
 
-            LbToDo.ItemsSource = LlistaToDo;
-            LbDoing.ItemsSource = LlistaDoing;
-            LbDone.ItemsSource = LlistaDone;
+            cmboxResponsable.ItemsSource = llistaResponsables;
+
+            LbToDo.ItemsSource = llistaToDo;
+            LbDoing.ItemsSource = llistaDoing;
+            LbDone.ItemsSource = llistaDone;
         }
 
         private void ButtonAfegirItem_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtName.Text))
+            if (!string.IsNullOrWhiteSpace(txtName.Text) && !string.IsNullOrWhiteSpace(cmboxResponsable.Text))
             {
-                idCounter++;                
-                
-                if(cmboxEstat.Text == "To Do")
+                idCounter++;
+
+                ItemKanBan nouElement = new ItemKanBan()
                 {
-                    LlistaToDo.Add(new ItemKanBan()
-                    {
-                        id = idCounter,
-                        tasca = txtName.Text,
-                        estat = cmboxEstat.Text,
-                        color = defaultColor,
-                        dataStart = DateTime.Now
-                    });
+                    id = idCounter,
+                    tasca = txtName.Text,
+                    estat = cmboxEstat.Text,
+                    color = defaultColor,
+                    dataStart = DateTime.Now,
+                    responsable = cmboxResponsable.Text
+                };
+
+                if (cmboxEstat.Text == "To Do")
+                {
+                    llistaToDo.Add(nouElement);
                 }
                 else if(cmboxEstat.Text == "Doing")
                 {
-                    LlistaDoing.Add(new ItemKanBan()
-                    {
-                        id = idCounter,
-                        tasca = txtName.Text,
-                        estat = cmboxEstat.Text,
-                        color = defaultColor,
-                        dataStart = DateTime.Now
-                    });
+                    llistaDoing.Add(nouElement);
                 }
                 else
                 {
-                    LlistaDone.Add(new ItemKanBan()
-                    {
-                        id = idCounter,
-                        tasca = txtName.Text,
-                        estat = cmboxEstat.Text,
-                        color = defaultColor,
-                        dataStart = DateTime.Now
-                    });
+                    llistaDone.Add(nouElement);
                 }
                 
                 txtName.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Falta assignar una tasca o responsable");
             }
         }
 
@@ -89,23 +85,23 @@ namespace ProjecteKanBan
         {
             if (LbToDo.SelectedItem is ItemKanBan selectedItem)
             {
-                LlistaToDo.Remove(selectedItem);
+                llistaToDo.Remove(selectedItem);
             }
             else if (LbDoing.SelectedItem is ItemKanBan selectedItem2)
             {
-                LlistaDoing.Remove(selectedItem2);
+                llistaDoing.Remove(selectedItem2);
             }
             else if (LbDone.SelectedItem is ItemKanBan selectedItem3)
             {
-                LlistaDone.Remove(selectedItem3);
+                llistaDone.Remove(selectedItem3);
             }
         }
 
         private void ButtonBuidarLlista_Click(object sender, RoutedEventArgs e)
         {
-            LlistaToDo.Clear();
-            LlistaDoing.Clear();
-            LlistaDone.Clear();
+            llistaToDo.Clear();
+            llistaDoing.Clear();
+            llistaDone.Clear();
         }
 
         private void ButtonAfegirColor_Click(object sender, RoutedEventArgs e)
