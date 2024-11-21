@@ -104,6 +104,9 @@
                                 <Run Text="Data Inici: " FontWeight="Bold"/>
                                 <Run Text="{Binding dataStart}"/>
                                 <LineBreak/>
+                                <Run Text="Data Final: " FontWeight="Bold"/>
+                                <Run Text="{Binding dataFinish}"/>
+                                <LineBreak/>
                                 <Run Text="Responsable: " FontWeight="Bold"/>
                                 <Run Text="{Binding responsable}"/>
                             </TextBlock>
@@ -133,6 +136,9 @@
                                 <LineBreak/>
                                 <Run Text="Data Inici: " FontWeight="Bold"/>
                                 <Run Text="{Binding dataStart}"/>
+                                <LineBreak/>
+                                <Run Text="Data Final: " FontWeight="Bold"/>
+                                <Run Text="{Binding dataFinish}"/>
                                 <LineBreak/>
                                 <Run Text="Responsable: " FontWeight="Bold"/>
                                 <Run Text="{Binding responsable}"/>
@@ -164,6 +170,9 @@
                                 <LineBreak/>
                                 <Run Text="Data Inici: " FontWeight="Bold"/>
                                 <Run Text="{Binding dataStart}"/>
+                                <LineBreak/>
+                                <Run Text="Data Final: " FontWeight="Bold"/>
+                                <Run Text="{Binding dataFinish}"/>
                                 <LineBreak/>
                                 <Run Text="Responsable: " FontWeight="Bold"/>
                                 <Run Text="{Binding responsable}"/>
