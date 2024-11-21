@@ -19,9 +19,15 @@ namespace ProjecteKanBan
     /// </summary>
     public partial class Responsables : Window
     {
+
+        
         public Responsables()
         {
             InitializeComponent();
+
+            MainWindow.llistaResponsables.Add("exemple");
+
         }
+        
     }
 }
