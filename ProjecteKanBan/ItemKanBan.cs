@@ -13,6 +13,7 @@ namespace ProjecteKanBan
         public required string estat {  get; set; }
         public required string color { get; set; }
         public required string responsable { get; set; }
+        public required string itemFinal { get; set; }
         public required DateTime dataStart { get; set; }
         //public required DateTime dataFinish { get; set; }
     }

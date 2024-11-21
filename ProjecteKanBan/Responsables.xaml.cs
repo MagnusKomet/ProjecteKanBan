@@ -34,7 +34,7 @@ namespace ProjecteKanBan
         {
             if (!string.IsNullOrWhiteSpace(nomResponsableTextBox.Text))
             {
-                llistaResponsables.Add(nomResponsableTextBox.Text);
+                MainWindow.llistaResponsables.Add(nomResponsableTextBox.Text);
             }
         }
 

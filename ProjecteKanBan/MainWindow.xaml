@@ -88,9 +88,7 @@
 
                         <StackPanel>
 
-                            <TextBlock Text="{Binding id}"/>
-                            <TextBlock Text="{Binding tasca}" TextWrapping="Wrap"/>
-                            <TextBlock Text="{Binding dataStart}"/>
+                            <TextBlock Text="{Binding itemFinal}" TextWrapping="Wrap"/>
                             <Separator/>
 
                         </StackPanel>
@@ -108,9 +106,7 @@
 
                         <StackPanel>
 
-                            <TextBlock Text="{Binding id}"/>
-                            <TextBlock Text="{Binding tasca}" TextWrapping="Wrap"/>
-                            <TextBlock Text="{Binding dataStart}"/>
+                            <TextBlock Text="{Binding itemFinal}" TextWrapping="Wrap"/>
                             <Separator/>
 
                         </StackPanel>
@@ -129,9 +125,7 @@
 
                         <StackPanel>
 
-                            <TextBlock Text="{Binding id}"/>
-                            <TextBlock Text="{Binding tasca}" TextWrapping="Wrap"/>
-                            <TextBlock Text="{Binding dataStart}"/>
+                            <TextBlock Text="{Binding itemFinal}" TextWrapping="Wrap"/>
                             <Separator/>
 
                         </StackPanel>
