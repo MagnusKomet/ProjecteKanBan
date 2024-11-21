@@ -26,6 +26,8 @@ namespace ProjecteKanBan
         {
             InitializeComponent();
 
+
+
             llistaResponsablesListBox.ItemsSource = MainWindow.llistaResponsables;
 
         }

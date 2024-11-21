@@ -37,6 +37,9 @@ namespace ProjecteKanBan
             cmboxEstat.Items.Add("Doing");
             cmboxEstat.Items.Add("Done");
 
+            llistaResponsables.Add("Fèlix");
+            llistaResponsables.Add("Ernest");
+
             cmboxResponsable.ItemsSource = llistaResponsables;
 
             LbToDo.ItemsSource = llistaToDo;
@@ -46,7 +49,7 @@ namespace ProjecteKanBan
 
         private void ButtonAfegirItem_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(txtName.Text) && !string.IsNullOrWhiteSpace(cmboxResponsable.Text))
+            if (!string.IsNullOrWhiteSpace(txtName.Text) && !string.IsNullOrWhiteSpace(cmboxResponsable.Text) && dpData.SelectedDate != null)
             {
                 idCounter++;
 
@@ -56,15 +59,12 @@ namespace ProjecteKanBan
                     tasca = txtName.Text,
                     estat = cmboxEstat.Text,
                     color = defaultColor,
-                    dataStart = DateTime.Now,
-                    responsable = cmboxResponsable.Text,
-
-                    itemFinal = "Codi: " + idCounter +
-                    "\nTasca: " + txtName.Text +
-                    "\nData Inici: " + DateTime.Now +
-                    "\nResponsable: " + cmboxResponsable.Text
-
+                    dataStart = DateTime.Now.ToShortDateString(),
+                    dataFinish = dpData.SelectedDate.Value.ToShortDateString(),
+                    responsable = cmboxResponsable.Text
                 };
+
+                nouElement.SetItemFinal();
 
                 if (cmboxEstat.Text == "To Do")
                 {
@@ -83,7 +83,7 @@ namespace ProjecteKanBan
             }
             else
             {
-                MessageBox.Show("Falta assignar una tasca o responsable");
+                MessageBox.Show("Falta assignar una tasca, data final o responsable");
             }
         }
 
