@@ -50,6 +50,30 @@
             <Setter Property="SelectedIndex" Value="0"/>
         </Style>
 
+        <DataTemplate x:Key="ItemTemplate">
+            <StackPanel>
+
+                <TextBlock TextWrapping="Wrap">
+                                <Run Text="Codi: " FontWeight="Bold"/>
+                                <Run Text="{Binding id}"/>
+                                <LineBreak/>
+                                <Run Text="Tasca: " FontWeight="Bold"/>
+                                <Run Text="{Binding tasca}"/>
+                                <LineBreak/>
+                                <Run Text="Data Inici: " FontWeight="Bold"/>
+                                <Run Text="{Binding dataStart}"/>
+                                <LineBreak/>
+                                <Run Text="Data Final: " FontWeight="Bold"/>
+                                <Run Text="{Binding dataFinish}"/>
+                                <LineBreak/>
+                                <Run Text="Responsable: " FontWeight="Bold"/>
+                                <Run Text="{Binding responsable}"/>
+                </TextBlock>
+                <Separator/>
+
+            </StackPanel>
+        </DataTemplate>
+
     </Window.Resources>
 
     <Grid Name="pnlMainGrid" Background="LightBlue">
@@ -86,113 +110,17 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <ListBox x:Name="LbToDo" Grid.Column="0" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" SelectionChanged="ListBox_SelectionChanged">
+            <ListBox x:Name="LbToDo" Grid.Column="0" ItemTemplate="{StaticResource ItemTemplate}" SelectionChanged="ListBox_SelectionChanged" />
+            <ListBox x:Name="LbDoing" Grid.Column="1" ItemTemplate="{StaticResource ItemTemplate}" SelectionChanged="ListBox_SelectionChanged" />
+            <ListBox x:Name="LbDone" Grid.Column="2" ItemTemplate="{StaticResource ItemTemplate}" SelectionChanged="ListBox_SelectionChanged" />
 
-                <ListBox.ItemTemplate>
-
-                    <DataTemplate>
-
-                        <StackPanel>
-
-                            <TextBlock TextWrapping="Wrap">
-                                <Run Text="Codi: " FontWeight="Bold"/>
-                                <Run Text="{Binding id}"/>
-                                <LineBreak/>
-                                <Run Text="Tasca: " FontWeight="Bold"/>
-                                <Run Text="{Binding tasca}"/>
-                                <LineBreak/>
-                                <Run Text="Data Inici: " FontWeight="Bold"/>
-                                <Run Text="{Binding dataStart}"/>
-                                <LineBreak/>
-                                <Run Text="Data Final: " FontWeight="Bold"/>
-                                <Run Text="{Binding dataFinish}"/>
-                                <LineBreak/>
-                                <Run Text="Responsable: " FontWeight="Bold"/>
-                                <Run Text="{Binding responsable}"/>
-                            </TextBlock>
-                            <Separator/>
-
-                        </StackPanel>
-
-                    </DataTemplate>
-
-                </ListBox.ItemTemplate>
-
-            </ListBox>
-            <ListBox x:Name="LbDoing" Grid.Column="1" SelectionChanged="ListBox_SelectionChanged">
-
-                <ListBox.ItemTemplate>
-
-                    <DataTemplate>
-
-                        <StackPanel>
-
-                            <TextBlock TextWrapping="Wrap">
-                                <Run Text="Codi: " FontWeight="Bold"/>
-                                <Run Text="{Binding id}"/>
-                                <LineBreak/>
-                                <Run Text="Tasca: " FontWeight="Bold"/>
-                                <Run Text="{Binding tasca}"/>
-                                <LineBreak/>
-                                <Run Text="Data Inici: " FontWeight="Bold"/>
-                                <Run Text="{Binding dataStart}"/>
-                                <LineBreak/>
-                                <Run Text="Data Final: " FontWeight="Bold"/>
-                                <Run Text="{Binding dataFinish}"/>
-                                <LineBreak/>
-                                <Run Text="Responsable: " FontWeight="Bold"/>
-                                <Run Text="{Binding responsable}"/>
-                            </TextBlock>
-                            <Separator/>
-
-                        </StackPanel>
-
-                    </DataTemplate>
-
-                </ListBox.ItemTemplate>
-
-            </ListBox>
-
-            <ListBox x:Name="LbDone" Grid.Column="2" SelectionChanged="ListBox_SelectionChanged">
-
-                <ListBox.ItemTemplate>
-
-                    <DataTemplate>
-
-                        <StackPanel>
-
-                            <TextBlock TextWrapping="Wrap">
-                                <Run Text="Codi: " FontWeight="Bold"/>
-                                <Run Text="{Binding id}"/>
-                                <LineBreak/>
-                                <Run Text="Tasca: " FontWeight="Bold"/>
-                                <Run Text="{Binding tasca}"/>
-                                <LineBreak/>
-                                <Run Text="Data Inici: " FontWeight="Bold"/>
-                                <Run Text="{Binding dataStart}"/>
-                                <LineBreak/>
-                                <Run Text="Data Final: " FontWeight="Bold"/>
-                                <Run Text="{Binding dataFinish}"/>
-                                <LineBreak/>
-                                <Run Text="Responsable: " FontWeight="Bold"/>
-                                <Run Text="{Binding responsable}"/>
-                            </TextBlock>
-                            <Separator/>
-
-                        </StackPanel>
-
-                    </DataTemplate>
-
-                </ListBox.ItemTemplate>
-
-            </ListBox>
         </Grid>
 
         <StackPanel Grid.Row="1" Grid.Column="2">
             <TextBox x:Name="txtName" Margin="10,0,10,10" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Height="82" TextWrapping="Wrap" FontSize="20"/>
             <ComboBox x:Name="cmboxEstat"/>
             <ComboBox x:Name="cmboxResponsable"/>
-            <DatePicker x:Name="dpData"/>
+            <DatePicker x:Name="dpData" Margin="10"/>
             <Button x:Name="btnAdd" Click="ButtonAfegirItem_Click">Afegir Item</Button>
             <Button x:Name="btnDelete" Click="ButtonTreureItem_Click">Treure Item</Button>
             <Button x:Name="btnClear" Click="ButtonBuidarLlista_Click" Content="Buidar llista"/>

@@ -64,7 +64,6 @@ namespace ProjecteKanBan
                     responsable = cmboxResponsable.Text
                 };
 
-                nouElement.SetItemFinal();
 
                 if (cmboxEstat.Text == "To Do")
                 {

@@ -16,16 +16,6 @@ namespace ProjecteKanBan
         public required string responsable { get; set; }
         public required string dataStart { get; set; }
         public required string dataFinish { get; set; }
-        public string itemFinal { get; set; }
-
-        public void SetItemFinal()
-        {
-            itemFinal = "Codi: " + id +
-                   "\nTasca:\n" + tasca +
-                   "\nData Inici: " + dataStart +
-                   "\nData Final: " + dataFinish +
-                   "\nResponsable: " + responsable;
-        }
     }
 
 }
