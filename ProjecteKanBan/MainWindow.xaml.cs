@@ -182,5 +182,81 @@ namespace ProjecteKanBan
             responsables.Show();
             
         }
+
+        public void DragDrop_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            ListBox listBox = sender as ListBox;
+            if (listBox != null)
+            {
+                ItemKanBan item = listBox.SelectedItem as ItemKanBan;
+                if (item != null)
+                {
+                    DragDrop.DoDragDrop(listBox, item, DragDropEffects.Move);
+                }
+            }
+        }
+
+
+
+        public void Listbox_DragOver(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(ItemKanBan)))
+            {
+                e.Effects = DragDropEffects.Move;
+            }
+        }
+
+
+        public void ListBox_Drop(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(ItemKanBan)))
+            {
+                ItemKanBan droppedItem = e.Data.GetData(typeof(ItemKanBan)) as ItemKanBan;
+                ListBox targetListBox = sender as ListBox;
+
+                if (droppedItem != null && targetListBox != null)
+                {
+                    ObservableCollection<ItemKanBan> originalCollection = null;
+                    ObservableCollection<ItemKanBan> targetCollection = null;
+
+                    if (LbToDo.ItemsSource == targetListBox.ItemsSource)
+                    {
+                        targetCollection = llistaToDo;
+                    }                        
+                    else if (LbDoing.ItemsSource == targetListBox.ItemsSource)
+                    {
+                        targetCollection = llistaDoing;
+                    }                        
+                    else if (LbDone.ItemsSource == targetListBox.ItemsSource)
+                    {
+                        targetCollection = llistaDone;
+                    }
+                        
+
+                    if (LbToDo.ItemsSource == LbToDo.ItemsSource && LbToDo.Items.Contains(droppedItem))
+                    {
+                        originalCollection = llistaToDo;
+                    }                        
+                    else if (LbDoing.ItemsSource == LbDoing.ItemsSource && LbDoing.Items.Contains(droppedItem))
+                    {
+                        originalCollection = llistaDoing;
+                    }                        
+                    else if (LbDone.ItemsSource == LbDone.ItemsSource && LbDone.Items.Contains(droppedItem))
+                    {
+                        originalCollection = llistaDone;
+                    }
+                        
+                                        
+                    if (originalCollection != null && targetCollection != null && originalCollection != targetCollection)
+                    {
+                        originalCollection.Remove(droppedItem);
+                        targetCollection.Add(droppedItem);
+                    }
+                }
+            }
+        }
+
+
+
     }
 }
