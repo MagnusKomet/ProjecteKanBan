@@ -111,9 +111,9 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <ListBox x:Name="LbToDo" Grid.Column="0" ItemTemplate="{StaticResource ItemTemplate}" SelectionChanged="ListBox_SelectionChanged" PreviewMouseLeftButtonDown="DragDrop_PreviewMouseLeftButtonDown" AllowDrop="True" Drop="ListBox_Drop" />
-            <ListBox x:Name="LbDoing" Grid.Column="1" ItemTemplate="{StaticResource ItemTemplate}" SelectionChanged="ListBox_SelectionChanged" PreviewMouseLeftButtonDown="DragDrop_PreviewMouseLeftButtonDown" AllowDrop="True" Drop="ListBox_Drop"/>
-            <ListBox x:Name="LbDone" Grid.Column="2" ItemTemplate="{StaticResource ItemTemplate}" SelectionChanged="ListBox_SelectionChanged" PreviewMouseLeftButtonDown="DragDrop_PreviewMouseLeftButtonDown" AllowDrop="True" Drop="ListBox_Drop" />
+            <ListBox x:Name="LbToDo" Grid.Column="0" ItemTemplate="{StaticResource ItemTemplate}" SelectionChanged="ListBox_SelectionChanged" PreviewMouseLeftButtonDown="DragDrop_PreviewMouseLeftButtonDown" AllowDrop="True" Drop="ListBox_Drop" MouseDoubleClick="ListBox_MouseDoubleClick"/>
+            <ListBox x:Name="LbDoing" Grid.Column="1" ItemTemplate="{StaticResource ItemTemplate}" SelectionChanged="ListBox_SelectionChanged" PreviewMouseLeftButtonDown="DragDrop_PreviewMouseLeftButtonDown" AllowDrop="True" Drop="ListBox_Drop" MouseDoubleClick="ListBox_MouseDoubleClick"/>
+            <ListBox x:Name="LbDone" Grid.Column="2" ItemTemplate="{StaticResource ItemTemplate}" SelectionChanged="ListBox_SelectionChanged" PreviewMouseLeftButtonDown="DragDrop_PreviewMouseLeftButtonDown" AllowDrop="True" Drop="ListBox_Drop" MouseDoubleClick="ListBox_MouseDoubleClick"/>
 
         </Grid>
 
