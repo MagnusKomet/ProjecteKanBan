@@ -185,12 +185,23 @@ namespace ProjecteKanBan
         }
 
         public void DragDrop_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-        {            
+        {
             if (sender is ListBox listbox)
-            {                
-                if (listbox.SelectedItem is ItemKanBan item)
+            {
+                var point = e.GetPosition(listbox);
+
+                var element = listbox.InputHitTest(point) as FrameworkElement;
+
+                if (element != null)
                 {
-                    DragDrop.DoDragDrop(listbox, item, DragDropEffects.Move);
+                    var item = element.DataContext as ItemKanBan;
+
+                    if (item != null)
+                    {
+                        listbox.SelectedItem = item;
+
+                        DragDrop.DoDragDrop(listbox, item, DragDropEffects.Move);
+                    }
                 }
             }
         }
@@ -200,7 +211,6 @@ namespace ProjecteKanBan
         {
             if (e.Data.GetDataPresent(typeof(ItemKanBan)))
             {
-                
                 if (e.Data.GetData(typeof(ItemKanBan)) is ItemKanBan droppedItem && sender is ListBox targetListBox)
                 {
                     ObservableCollection<ItemKanBan> originalCollection = null;
@@ -218,7 +228,6 @@ namespace ProjecteKanBan
                     {
                         targetCollection = llistaDone;
                     }
-                        
 
                     if (LbToDo.ItemsSource == LbToDo.ItemsSource && LbToDo.Items.Contains(droppedItem))
                     {

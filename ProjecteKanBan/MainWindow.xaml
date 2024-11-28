@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:ProjecteKanBan"
         mc:Ignorable="d"
         Title="Projecte KanBan" Height="1080" Width="1920" WindowState="Maximized">
-    
+
     <Window.Resources>
 
         <Style TargetType="{x:Type Button}">
@@ -54,7 +54,7 @@
         <DataTemplate x:Key="ItemTemplate">
             <StackPanel>
 
-                <TextBlock TextWrapping="Wrap">
+                <TextBlock TextWrapping="Wrap" IsHitTestVisible="False">
                                 <Run Text="Codi: " FontWeight="Bold"/>
                                 <Run Text="{Binding id}"/>
                                 <LineBreak/>
@@ -143,7 +143,7 @@
 
             </Grid>
             <Button x:Name="btnGestionarResponsables" Click="btnGestionarResponsables_Click" Content="Gestionar responsables" FontSize="20"/>
-            
+
         </StackPanel>
 
     </Grid>
