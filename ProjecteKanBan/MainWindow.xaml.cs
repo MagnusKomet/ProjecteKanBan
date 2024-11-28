@@ -242,7 +242,10 @@ namespace ProjecteKanBan
             }
         }
 
-
+        private void ButtonEditarItem_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("paco");
+        }
 
 
     }

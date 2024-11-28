@@ -112,7 +112,7 @@
             </Grid.ColumnDefinitions>
 
             <ListBox x:Name="LbToDo" Grid.Column="0" ItemTemplate="{StaticResource ItemTemplate}" SelectionChanged="ListBox_SelectionChanged" PreviewMouseLeftButtonDown="DragDrop_PreviewMouseLeftButtonDown" AllowDrop="True" Drop="ListBox_Drop" />
-            <ListBox x:Name="LbDoing" Grid.Column="1" ItemTemplate="{StaticResource ItemTemplate}" SelectionChanged="ListBox_SelectionChanged" PreviewMouseLeftButtonDown="DragDrop_PreviewMouseLeftButtonDown" AllowDrop="True" Drop="ListBox_Drop"/>
+            <ListBox x:Name="LbDoing" Grid.Column="1" ItemTemplate="{StaticResource ItemTemplate}" SelectionChanged="ListBox_SelectionChanged" PreviewMouseLeftButtonDown="DragDrop_PreviewMouseLeftButtonDown" AllowDrop="True" Drop="ListBox_Drop" />
             <ListBox x:Name="LbDone" Grid.Column="2" ItemTemplate="{StaticResource ItemTemplate}" SelectionChanged="ListBox_SelectionChanged" PreviewMouseLeftButtonDown="DragDrop_PreviewMouseLeftButtonDown" AllowDrop="True" Drop="ListBox_Drop" />
 
         </Grid>
@@ -124,6 +124,7 @@
             <DatePicker x:Name="dpData" Margin="10"/>
             <Button x:Name="btnAdd" Click="ButtonAfegirItem_Click">Afegir Item</Button>
             <Button x:Name="btnDelete" Click="ButtonTreureItem_Click">Treure Item</Button>
+            <Button x:Name="btnEdit" Click="ButtonEditarItem_Click">Editar Item</Button>
             <Button x:Name="btnClear" Click="ButtonBuidarLlista_Click" Content="Buidar llista"/>
 
             <Grid Margin="5" Height="85">
