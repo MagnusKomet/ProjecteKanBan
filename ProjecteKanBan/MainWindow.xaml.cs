@@ -273,7 +273,7 @@ namespace ProjecteKanBan
                 itemSeleccionat = selectedItem3;
                 Window modificar = new Modificar();
                 modificar.Show();
-                selectedItem3 = itemSeleccionat;              
+                selectedItem3 = itemSeleccionat;         
             }
             
 

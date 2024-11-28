@@ -1,23 +1,89 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
+﻿using System.ComponentModel;
 
-namespace ProjecteKanBan
+public class ItemKanBan : INotifyPropertyChanged
 {
-    public class ItemKanBan
-    {
-        public required int id { get; set; }
-        public required string tasca { get; set; }
-        public required string estat { get; set; }
-        public required string color { get; set; }
-        public required string responsable { get; set; }
-        public required string dataStart { get; set; }
-        public required string dataFinish { get; set; }
+    private int _id;
+    private string _tasca;
+    private string _estat;
+    private string _color;
+    private string _dataStart;
+    private string _dataFinish;
+    private string _responsable;
 
+    public event PropertyChangedEventHandler PropertyChanged;
+
+    public int id
+    {
+        get { return _id; }
+        set
+        {
+            _id = value;
+            OnPropertyChanged("id");
+        }
     }
 
-}
+    public string tasca
+    {
+        get { return _tasca; }
+        set
+        {
+            _tasca = value;
+            OnPropertyChanged("tasca");
+        }
+    }
 
+    public string estat
+    {
+        get { return _estat; }
+        set
+        {
+            _estat = value;
+            OnPropertyChanged("estat");
+        }
+    }
+
+    public string color
+    {
+        get { return _color; }
+        set
+        {
+            _color = value;
+            OnPropertyChanged("color");
+        }
+    }
+
+    public string dataStart
+    {
+        get { return _dataStart; }
+        set
+        {
+            _dataStart = value;
+            OnPropertyChanged("dataStart");
+        }
+    }
+
+    public string dataFinish
+    {
+        get { return _dataFinish; }
+        set
+        {
+            _dataFinish = value;
+            OnPropertyChanged("dataFinish");
+        }
+    }
+
+    public string responsable
+    {
+        get { return _responsable; }
+        set
+        {
+            _responsable = value;
+            OnPropertyChanged("responsable");
+        }
+    }
+
+    protected void OnPropertyChanged(string propertyName)
+    {
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+}
