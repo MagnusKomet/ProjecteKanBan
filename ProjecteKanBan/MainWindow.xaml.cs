@@ -278,8 +278,6 @@ namespace ProjecteKanBan
                 selectedItem3 = itemSeleccionat;
                 LbDone.Items.Refresh();
             }
-
-
         }
     }
 }
