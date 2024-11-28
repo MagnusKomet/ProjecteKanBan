@@ -260,7 +260,6 @@ namespace ProjecteKanBan
                 Window modificar = new Modificar();
                 modificar.Show();
                 selectedItem = itemSeleccionat;
-                LbToDo.Items.Refresh();
             }
             else if (LbDoing.SelectedItem is ItemKanBan selectedItem2)
             {
@@ -268,16 +267,15 @@ namespace ProjecteKanBan
                 Window modificar = new Modificar();
                 modificar.Show();
                 selectedItem2 = itemSeleccionat;
-                LbDoing.Items.Refresh();
             }
             else if (LbDone.SelectedItem is ItemKanBan selectedItem3)
             {
                 itemSeleccionat = selectedItem3;
                 Window modificar = new Modificar();
                 modificar.Show();
-                selectedItem3 = itemSeleccionat;
-                LbDone.Items.Refresh();                
+                selectedItem3 = itemSeleccionat;              
             }
+            
 
         }
     }
