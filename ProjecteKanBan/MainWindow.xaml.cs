@@ -21,6 +21,7 @@ namespace ProjecteKanBan
     public partial class MainWindow : Window
     {
         public static ObservableCollection<string> llistaResponsables = new ObservableCollection<string>();
+        public static ItemKanBan itemSeleccionat = null;
 
         ObservableCollection<ItemKanBan> llistaToDo = new ObservableCollection<ItemKanBan>();
         ObservableCollection<ItemKanBan> llistaDoing = new ObservableCollection<ItemKanBan>();
@@ -251,11 +252,34 @@ namespace ProjecteKanBan
             }
         }
 
-        private void ListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void ButtonEditarItem_Click(object sender, RoutedEventArgs e)
         {
-            Window modificar = new Modificar();
+            if (LbToDo.SelectedItem is ItemKanBan selectedItem)
+            {
+                itemSeleccionat = selectedItem;
+                Window modificar = new Modificar();
+                modificar.Show();
+                selectedItem = itemSeleccionat;
+                LbToDo.Items.Refresh();
+            }
+            else if (LbDoing.SelectedItem is ItemKanBan selectedItem2)
+            {
+                itemSeleccionat = selectedItem2;
+                Window modificar = new Modificar();
+                modificar.Show();
+                selectedItem2 = itemSeleccionat;
+                LbDoing.Items.Refresh();
+            }
+            else if (LbDone.SelectedItem is ItemKanBan selectedItem3)
+            {
+                itemSeleccionat = selectedItem3;
+                Window modificar = new Modificar();
+                modificar.Show();
+                selectedItem3 = itemSeleccionat;
+                LbDone.Items.Refresh();
+            }
 
-            modificar.Show();
+
         }
     }
 }

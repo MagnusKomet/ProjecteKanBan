@@ -19,9 +19,27 @@ namespace ProjecteKanBan
     /// </summary>
     public partial class Modificar : Window
     {
+                    
+        ItemKanBan item = MainWindow.itemSeleccionat;
+
         public Modificar()
         {
             InitializeComponent();
+            
+            cmboxResponsable.ItemsSource = MainWindow.llistaResponsables;
+            txtTasca.Text = item.tasca;
+            cmboxResponsable.SelectedValue = item.responsable;
+            datePicker.Text = item.dataFinish;
+        }
+
+        private void ConfirmarEdit_Click(object sender, RoutedEventArgs e)
+        {
+            item.tasca = txtTasca.Text;
+            item.responsable = cmboxResponsable.Text;
+            item.dataFinish = datePicker.SelectedDate.Value.ToShortDateString();
+
+            MainWindow.itemSeleccionat = item;
+            this.Close();
         }
     }
 }

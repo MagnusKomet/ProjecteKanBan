@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:ProjecteKanBan"
         mc:Ignorable="d"
         Title="Modificar" Height="300" Width="800">
+    
     <Window.Resources>
         <Style TargetType="{x:Type Button}">
             <Setter Property="Background" Value="Orange" />
@@ -15,18 +16,22 @@
             <Setter Property="Margin" Value="5" />
         </Style>
     </Window.Resources>
+    
     <Grid Background="LightBlue">
+        
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+        
         <StackPanel Orientation="Vertical" Grid.Column="0">
-            <TextBox Margin="10" Height="200"/>
+            <TextBox x:Name="txtTasca" Margin="10" Height="200"/>
         </StackPanel>
+        
         <StackPanel Orientation="Vertical" Grid.Column="1">
-            <Button Margin="10" Height="50" Content="Confirmar canvi" FontSize="30" FontWeight="Bold"/>
-            <ComboBox Margin="10" Height="50"/>
-            <DatePicker Margin="10"/>
+            <Button Margin="10" Height="50" Content="Confirmar canvi" FontSize="30" FontWeight="Bold" Click="ConfirmarEdit_Click"/>
+            <ComboBox x:Name="cmboxResponsable" Margin="10" Height="50"/>
+            <DatePicker x:Name="datePicker" Margin="10"/>
 
         </StackPanel>
     </Grid>
