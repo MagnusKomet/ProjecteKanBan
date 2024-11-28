@@ -16,6 +16,7 @@ namespace ProjecteKanBan
         public required string responsable { get; set; }
         public required string dataStart { get; set; }
         public required string dataFinish { get; set; }
+
     }
 
 }

@@ -45,5 +45,6 @@ namespace ProjecteKanBan
                 MainWindow.llistaResponsables.Remove(responsable);
             }
         }
+
     }
 }
