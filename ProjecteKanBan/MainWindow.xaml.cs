@@ -242,11 +242,11 @@ namespace ProjecteKanBan
             }
         }
 
-        private void ButtonEditarItem_Click(object sender, RoutedEventArgs e)
+        private void ListBox_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("paco");
+            Window modificar = new Modificar();
+
+            modificar.Show();
         }
-
-
     }
 }
