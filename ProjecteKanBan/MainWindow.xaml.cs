@@ -267,9 +267,8 @@ namespace ProjecteKanBan
                 Window modificar = new Modificar();
                 modificar.Show();
                 selectedItem3 = itemSeleccionat;
-                LbDone.Items.Refresh();
+                LbDone.Items.Refresh();                
             }
-
 
         }
     }
