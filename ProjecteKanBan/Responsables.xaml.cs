@@ -29,7 +29,7 @@ namespace ProjecteKanBan
             llistaResponsablesListBox.ItemsSource = MainWindow.llistaResponsables;
         }
 
-        private void afegirResponsableBoto_Click(object sender, RoutedEventArgs e)
+        private void AfegirResponsableBoto_Click(object sender, RoutedEventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(nomResponsableTextBox.Text))
             {
@@ -38,7 +38,7 @@ namespace ProjecteKanBan
             }
         }
 
-        private void eliminarResponsableBoto_Click(object sender, RoutedEventArgs e)
+        private void EliminarResponsableBoto_Click(object sender, RoutedEventArgs e)
         {
             if (llistaResponsablesListBox.SelectedItem is string responsable)
             {
