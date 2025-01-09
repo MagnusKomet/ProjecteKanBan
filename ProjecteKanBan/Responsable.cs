@@ -9,7 +9,7 @@ namespace ProjecteKanBan
 {
     public class Responsable
     {
-        static int idsTotals = 0;
+        static int idsTotals = 1;
 
         public string nom { get; set; }
         public string cognom { get; set; }

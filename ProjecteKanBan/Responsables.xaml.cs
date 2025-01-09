@@ -37,6 +37,8 @@ namespace ProjecteKanBan
             {
                 MainWindow.llistaResponsables.Add(new Responsable(nomResponsableTextBox.Text, cognomResponsableTextBox.Text, correuResponsableTextBox.Text));
                 nomResponsableTextBox.Text = string.Empty;
+                cognomResponsableTextBox.Text = string.Empty;
+                correuResponsableTextBox.Text = string.Empty;
             }
             
         }
