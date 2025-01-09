@@ -20,7 +20,7 @@ namespace ProjecteKanBan
     /// </summary>
     public partial class MainWindow : Window
     {
-        public static ObservableCollection<string> llistaResponsables = new ObservableCollection<string>();
+        public static ObservableCollection<Responsable> llistaResponsables = new ObservableCollection<Responsable>();
         public static ItemKanBan itemSeleccionat = null;
 
         ObservableCollection<ItemKanBan> llistaToDo = new ObservableCollection<ItemKanBan>();
@@ -38,8 +38,8 @@ namespace ProjecteKanBan
             cmboxEstat.Items.Add("Doing");
             cmboxEstat.Items.Add("Done");
 
-            llistaResponsables.Add("Fèlix");
-            llistaResponsables.Add("Ernest");
+            llistaResponsables.Add(new Responsable("Fèlix", "Bonet", "fbonet.dam@institutcampalans.net"));
+            llistaResponsables.Add(new Responsable("Ernest", "Hosta", "ehosta.dam@institutcampalans.net"));
 
             cmboxResponsable.ItemsSource = llistaResponsables;
 
@@ -62,7 +62,7 @@ namespace ProjecteKanBan
                     color = defaultColor,
                     dataStart = DateTime.Now.ToShortDateString(),
                     dataFinish = dpData.SelectedDate.Value.ToShortDateString(),
-                    responsable = cmboxResponsable.Text
+                    responsable = (Responsable)cmboxResponsable.SelectedItem
                 };
 
 

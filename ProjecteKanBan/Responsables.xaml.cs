@@ -24,27 +24,33 @@ namespace ProjecteKanBan
         {
             InitializeComponent();
 
-
-
             llistaResponsablesListBox.ItemsSource = MainWindow.llistaResponsables;
         }
 
+        
         private void AfegirResponsableBoto_Click(object sender, RoutedEventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(nomResponsableTextBox.Text))
+            
+            if (!string.IsNullOrWhiteSpace(nomResponsableTextBox.Text) &&
+                !string.IsNullOrWhiteSpace(cognomResponsableTextBox.Text) &&
+                !string.IsNullOrWhiteSpace(correuResponsableTextBox.Text))
             {
-                MainWindow.llistaResponsables.Add(nomResponsableTextBox.Text);
+                MainWindow.llistaResponsables.Add(new Responsable(nomResponsableTextBox.Text, cognomResponsableTextBox.Text, correuResponsableTextBox.Text));
                 nomResponsableTextBox.Text = string.Empty;
             }
+            
         }
 
         private void EliminarResponsableBoto_Click(object sender, RoutedEventArgs e)
         {
-            if (llistaResponsablesListBox.SelectedItem is string responsable)
+            
+            if (llistaResponsablesListBox.SelectedItem is Responsable responsable)
             {
                 MainWindow.llistaResponsables.Remove(responsable);
             }
+            
         }
 
+
     }
-}
+    }

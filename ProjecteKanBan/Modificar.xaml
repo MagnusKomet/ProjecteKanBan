@@ -30,7 +30,7 @@
         
         <StackPanel Orientation="Vertical" Grid.Column="1">
             <Button Margin="10" Height="50" Content="Confirmar canvi" FontSize="30" FontWeight="Bold" Click="ConfirmarEdit_Click"/>
-            <ComboBox x:Name="cmboxResponsable" Margin="10" Height="50"/>
+            <ComboBox x:Name="cmboxResponsable" Margin="10" Height="50" DisplayMemberPath="nom"/>
             <DatePicker x:Name="datePicker" Margin="10"/>
 
         </StackPanel>

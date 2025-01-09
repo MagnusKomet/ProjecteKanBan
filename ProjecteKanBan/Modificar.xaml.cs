@@ -31,15 +31,18 @@ namespace ProjecteKanBan
             cmboxResponsable.SelectedValue = item.responsable;
             datePicker.Text = item.dataFinish;
         }
-
+        
         private void ConfirmarEdit_Click(object sender, RoutedEventArgs e)
         {
+            
             item.tasca = txtTasca.Text;
-            item.responsable = cmboxResponsable.Text;
+            item.responsable = (Responsable)cmboxResponsable.SelectedItem;
             item.dataFinish = datePicker.SelectedDate.Value.ToShortDateString();
 
             MainWindow.itemSeleccionat = item;
             this.Close();
+            
         }
+        
     }
 }

@@ -31,7 +31,6 @@
             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
             <Setter Property="Background" Value="{Binding color}"/>
             <Setter Property="FontSize" Value="20"/>
-
             <Setter Property="Margin" Value="10,5"/>
 
         </Style>
@@ -68,7 +67,7 @@
                                 <Run Text="{Binding dataFinish}"/>
                                 <LineBreak/>
                                 <Run Text="Responsable: " FontWeight="Bold"/>
-                                <Run Text="{Binding responsable}"/>
+                                <Run Text="{Binding responsable.nom}"/>
                 </TextBlock>
                 <Separator/>
 
@@ -120,7 +119,7 @@
         <StackPanel Grid.Row="1" Grid.Column="2">
             <TextBox x:Name="txtName" Margin="10,0,10,10" AcceptsReturn="True" VerticalScrollBarVisibility="Auto" Height="82" TextWrapping="Wrap" FontSize="20"/>
             <ComboBox x:Name="cmboxEstat"/>
-            <ComboBox x:Name="cmboxResponsable"/>
+            <ComboBox x:Name="cmboxResponsable" DisplayMemberPath="nom"/>
             <DatePicker x:Name="dpData" Margin="10"/>
             <Button x:Name="btnAdd" Click="ButtonAfegirItem_Click">Afegir Item</Button>
             <Button x:Name="btnDelete" Click="ButtonTreureItem_Click">Treure Item</Button>

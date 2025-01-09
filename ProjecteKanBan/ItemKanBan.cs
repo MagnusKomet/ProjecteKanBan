@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using ProjecteKanBan;
+using System.ComponentModel;
 
 public class ItemKanBan : INotifyPropertyChanged
 {
@@ -8,7 +9,7 @@ public class ItemKanBan : INotifyPropertyChanged
     private string _color;
     private string _dataStart;
     private string _dataFinish;
-    private string _responsable;
+    private Responsable _responsable;
 
     public event PropertyChangedEventHandler PropertyChanged;
 
@@ -72,7 +73,7 @@ public class ItemKanBan : INotifyPropertyChanged
         }
     }
 
-    public string responsable
+    public Responsable responsable
     {
         get { return _responsable; }
         set
