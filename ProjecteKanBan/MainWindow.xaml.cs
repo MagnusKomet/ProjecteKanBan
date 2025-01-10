@@ -20,6 +20,7 @@ namespace ProjecteKanBan
     /// </summary>
     public partial class MainWindow : Window
     {
+        ResponsablesApiClient api;
         public static ObservableCollection<Responsable> llistaResponsables = new ObservableCollection<Responsable>();
         public static ItemKanBan itemSeleccionat = null;
 
@@ -34,12 +35,15 @@ namespace ProjecteKanBan
         {
             InitializeComponent();
 
+            api = new ResponsablesApiClient();
+
+            Carregar_Responsables();
+
             cmboxEstat.Items.Add("To Do");
             cmboxEstat.Items.Add("Doing");
             cmboxEstat.Items.Add("Done");
 
-            llistaResponsables.Add(new Responsable("Fèlix", "Bonet", "fbonet.dam@institutcampalans.net"));
-            llistaResponsables.Add(new Responsable("Ernest", "Hosta", "ehosta.dam@institutcampalans.net"));
+            
 
             cmboxResponsable.ItemsSource = llistaResponsables;
 
@@ -275,8 +279,11 @@ namespace ProjecteKanBan
                 modificar.Show();
                 selectedItem3 = itemSeleccionat;         
             }
-            
+        }
 
+        private async void Carregar_Responsables()
+        {
+            llistaResponsables = await api.GetResponsableAsync();
         }
     }
 }
