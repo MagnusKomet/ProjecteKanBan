@@ -14,10 +14,10 @@ namespace ProjecteKanBan
 {
     public class ResponsablesApiClient
     {
-        string BaseUri;
+        string BaseUrl;
         public ResponsablesApiClient()
         {
-            BaseUri = "https://localhost:44351/api/";
+            BaseUrl = "https://localhost:44351/api/";
         }
 
         /// <summary>
@@ -25,13 +25,13 @@ namespace ProjecteKanBan
         /// </summary>
         /// <param name="id">Codi d'usuari</param>
         /// <returns>Usuari o null si no el troba</returns>
-        public async Task<Responsable> GetResponsableAsync(int id)
+        public async Task<Responsable> GetResponsableAsync(long id)
         {
             Responsable responsable = new Responsable("","","");
 
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri(BaseUri);
+                client.BaseAddress = new Uri(BaseUrl);
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -70,7 +70,7 @@ namespace ProjecteKanBan
 
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri(BaseUri);
+                client.BaseAddress = new Uri(BaseUrl);
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -99,7 +99,7 @@ namespace ProjecteKanBan
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri(BaseUri);
+                client.BaseAddress = new Uri(BaseUrl);
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -118,7 +118,7 @@ namespace ProjecteKanBan
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri(BaseUri);
+                client.BaseAddress = new Uri(BaseUrl);
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
@@ -134,16 +134,16 @@ namespace ProjecteKanBan
         /// </summary>
         /// <param name="responsable">Usuari que volem modificar</param>
         /// <returns></returns>
-        public async Task DeleteAsync(int id)
+        public async Task DeleteAsync(long id)
         {
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri(BaseUri);
+                client.BaseAddress = new Uri(BaseUrl);
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 //Enviem una petició DELETE al endpoint /users/Id
-                HttpResponseMessage response = await client.DeleteAsync($"responsable/{id}");
+                HttpResponseMessage response = await client.DeleteAsync($"responsables/{id}");
                 response.EnsureSuccessStatusCode();
             }
         }

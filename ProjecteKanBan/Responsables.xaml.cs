@@ -29,12 +29,6 @@ namespace ProjecteKanBan
             api = new ResponsablesApiClient();
         }
 
-        private async void LoadResponsables()
-        {
-            var responsables = await api.GetResponsableAsync();
-            llistaResponsablesListBox.ItemsSource = responsables;
-        }
-
         private async void CarregarResponsableBoto_Click(object sender, RoutedEventArgs e)
         {
             if (llistaResponsablesListBox.SelectedItem is Responsable selectedResponsable)
@@ -78,12 +72,6 @@ namespace ProjecteKanBan
                 await api.DeleteAsync(responsable.id);
             }
             
-        }
-        public async void refresh()
-        {
-            Mouse.OverrideCursor = System.Windows.Input.Cursors.Wait;
-            llistaResponsablesListBox.ItemsSource = await api.GetResponsableAsync();
-            Mouse.OverrideCursor = System.Windows.Input.Cursors.Arrow;
         }
 
     }
