@@ -63,6 +63,8 @@ namespace ProjecteKanBan
                 MainWindow.llistaResponsables.Add(nouResponsable);
                 await api.AddAsync(nouResponsable); 
                 nomResponsableTextBox.Text = string.Empty;
+                cognomResponsableTextBox.Text = string.Empty;
+                correuResponsableTextBox.Text = string.Empty;
             }
             
         }

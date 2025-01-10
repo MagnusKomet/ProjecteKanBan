@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjecteKanBan"
         mc:Ignorable="d"
-        Title="Responsables" Height="450" Width="500">
+        Title="Responsables" Height="450" Width="600">
 
     <Window.Resources>
         <Style TargetType="{x:Type Button}">
@@ -24,8 +24,33 @@
 
         <StackPanel>
             <TextBlock Text="Llista responsables" TextAlignment="Center" FontWeight="Bold" Margin="0,10,0,0"/>
+            
             <ListBox x:Name="llistaResponsablesListBox" Margin="10" Height="300">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Vertical" Margin="5">
+                            <TextBlock>
+                                <Run Text="ID: " FontWeight="Bold"/>
+                                <Run Text="{Binding id}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                <Run Text="Nom: " FontWeight="Bold"/>
+                                <Run Text="{Binding nom}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                <Run Text="Cognom: " FontWeight="Bold"/>
+                                <Run Text="{Binding cognom}"/>
+                            </TextBlock>
+                            <TextBlock>
+                                <Run Text="Correu: " FontWeight="Bold"/>
+                                <Run Text="{Binding correu}"/>
+                            </TextBlock>
+                            <Separator/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
             </ListBox>
+            
             <Button x:Name="eliminarResponsableBoto" Content="Eliminar responsable" Click="EliminarResponsableBoto_Click" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10"/>
         </StackPanel>
         
