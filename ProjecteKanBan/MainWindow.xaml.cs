@@ -43,10 +43,6 @@ namespace ProjecteKanBan
             cmboxEstat.Items.Add("Doing");
             cmboxEstat.Items.Add("Done");
 
-            
-
-            cmboxResponsable.ItemsSource = llistaResponsables;
-
             LbToDo.ItemsSource = llistaToDo;
             LbDoing.ItemsSource = llistaDoing;
             LbDone.ItemsSource = llistaDone;
@@ -284,6 +280,7 @@ namespace ProjecteKanBan
         private async void Carregar_Responsables()
         {
             llistaResponsables = await api.GetResponsableAsync();
+            cmboxResponsable.ItemsSource = llistaResponsables;
         }
     }
 }
